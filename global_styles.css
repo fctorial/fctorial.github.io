@@ -114,13 +114,18 @@ header {
     }
 }
 
+article > p {
+    margin: 1em 0;
+}
+
 pre {
     background: #eac6c6;
     padding: 0.5em;
 }
 
-pre.inline {
-    display: inline;
+span.pre {
+    background: #eac6c6;
+    white-space: pre;
     padding: 0;
 }
 
