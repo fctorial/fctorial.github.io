@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
+    <link rel="stylesheet" href="global_styles.css">
+</head>
+<body>
+<nav>
+    <a href="/">
+        HOME
+    </a>
+</nav>
+<header>
+    <h3 id="main_title">Changing Intellij Idea Splash Screen</h3>
+</header>
+<article>
+    You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. This guide shows how
+    to change the startup splash screen.
+    <ol>
+        <li>1. Execute <pre>jar tf path/to/idea/lib/resources.jar | less</pre> and search for "logo.png". Note the file name.</li>
+        <li>2. Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/intellij_logos.html">here</a>)</li>
+        <li>3. Open the idea launcher script (idea.sh) in an editor</li>
+        <li>4. Find this line and append your directory to the front: <pre>CLASSPATH="$IDE_HOME/lib/bootstrap.jar"</pre></li>
+        <li>6. Chown this directory to root:root and chmod to 755</li>
+    </ol>
+    Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well. Extract
+    a classfile from <pre class="inline">lib</pre>, decompile it (https://jdec.app), modify it, compile it (<pre class="inline">javac -cp "/home/fctorial/software/idea-IU/lib/*" Main.java</pre>)
+    and place it a subdirectory corresponding to the package. Intellij is a huge project (multi million lines of code),
+    so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
+    change ide in any way you want.
+</article>
+</body>
+<style>
+    ol li {
+        margin: 2em 0;
+        /*font-size: 1rem;*/
+    }
+</style>
+</html>

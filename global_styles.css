@@ -118,3 +118,12 @@ pre {
     background: #eac6c6;
     padding: 0.5em;
 }
+
+pre.inline {
+    display: inline;
+    padding: 0;
+}
+
+article {
+    line-height: 1.4em;
+}
