@@ -1,0 +1,1 @@
+https://api.github.com/repos/jetbrains/intellij-community/commits?path=community-resources/src/idea_community_logo.png&per_page=500
