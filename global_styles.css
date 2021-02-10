@@ -83,7 +83,6 @@ header {
 @media(max-width: 1024px) {
     body {
         width: 100%;
-        font-size: 0.8em;
     }
 }
 
