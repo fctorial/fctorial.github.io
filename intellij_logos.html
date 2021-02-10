@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intellij Logos</title>
+    <link rel="stylesheet" href="global_styles.css">
+</head>
+<body>
+<header>
+    <a href="/">
+        HOME
+    </a>
+    <h3 id="main_title">
+        All Intellij Idea Logos
+    </h3>
+</header>
+
+<ul id="logos">
+</ul>
+
+</body>
+<script>
+
+  function last(l) {
+    return l[l.length - 1]
+  }
+  function make_view(url) {
+    const name = last(url.split('/')).replace('.png', '')
+    const str = `
+<li>
+    <img src="${url}" title="${name}" />
+    <div class="name">${name}</div>
+    <div class="divider"></div>
+</li>
+`
+    return (new DOMParser()).parseFromString(str, 'text/html').body.children[0];
+  }
+
+  const list = document.querySelector('#logos')
+  fetch('collections/intellij_logos.json')
+    .then(res => res.json())
+    .then(ll => {
+      ll.map(make_view)
+        .forEach(v => list.appendChild(v))
+    })
+    .then(() => {
+      document.querySelector('#logos li:last-child .divider').remove()
+    })
+
+</script>
+<style>
+
+    #logos {
+        width: 100%;
+        margin-top: 2em;
+    }
+
+    #logos li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logos li .divider {
+        width: 100%;
+        height: 3px;
+        background: black;
+        margin: 2em 0;
+    }
+
+    #logos li .name {
+        margin: 1em 0 0;
+        font-size: 1.3em;
+        font-weight: 900;
+    }
+</style>
+</html>
