@@ -59,15 +59,28 @@ body {
     width: 50%;
     margin: auto;
     padding: 1em;
-    background: #d5d2d2;
+    background: #e7e3e3;
     font-family: monospace !important;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1em;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav > * {
+    padding: 0.5em 1em;
+    background: #c7c5c5;
 }
 
 header {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 2em;
     border-bottom: 1px solid black;
     padding-bottom: 1em;
@@ -83,6 +96,21 @@ header {
 @media(max-width: 1024px) {
     body {
         width: 100%;
+        font-size: 2em;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > * {
+        order: 10;
+        margin-top: 0.5em;
+    }
+
+    #main_title {
+        order: 1;
     }
 }
 
