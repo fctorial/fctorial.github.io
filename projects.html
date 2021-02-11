@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="static/css/global_styles.css">
+    <script src="/static/js/lib.js"></script>
+    <script src="/static/js/nav.js" defer></script>
+</head>
+<body>
+<noscript>
+    Please enable javascript
+</noscript>
+<header>
+    <h3 id="main_title">Projects</h3>
+</header>
+<script>
+    fetch("/collections/projects.json")
+    .then(res => res.json())
+    .then(ps => {
+      const el = make_element(`<table><tbody></tbody></table>`)
+      ps.forEach(
+        p => {
+          const newChild = make_element(
+            `
+          <tr>
+              <td><a href="${p.url}">${p.name}</a></td>
+              <td>${p.description}</td>
+          </tr>
+          `,
+            "table"
+          );
+          el.children[0].appendChild(
+            newChild
+          )
+        }      )
+      const header = document.querySelector("header")
+      header.parentNode.insertBefore(el, header.nextSibling)
+    })
+</script>
+<style>
+    table td {
+        padding: 1em;
+        border: 1px solid black;
+    }
+</style>
+</body>
+</html>

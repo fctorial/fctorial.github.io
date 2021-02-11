@@ -1,0 +1,12 @@
+[
+  {
+    "name": "tst",
+    "description": "Minimalist functional repl oriented testing framework for clojure(script)",
+    "url": "https://github.com/fctorial/tst"
+  },
+  {
+    "name": "parse_struct",
+    "description": "Serialize/Deserialize binary data in clojure with an api similar to pointer casting in `C`.",
+    "url": "https://github.com/fctorial/parse_struct"
+  }
+]

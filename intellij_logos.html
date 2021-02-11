@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Intellij Logos</title>
-    <link rel="stylesheet" href="global_styles.css">
 </head>
 <body>
-<nav>
-    <a href="/">
-        HOME
-    </a>
-</nav>
 <header>
     <h3 id="main_title">
         All Intellij Idea CE Logos
@@ -21,8 +15,10 @@
 </ul>
 
 </body>
-<script>
+<script src="/static/js/lib.js"></script>
+<link rel="stylesheet" href="static/css/global_styles.css">
 
+<script>
   function last(l) {
     return l[l.length - 1]
   }
@@ -35,7 +31,7 @@
     <div class="divider"></div>
 </li>
 `
-    return (new DOMParser()).parseFromString(str, 'text/html').body.children[0];
+    return make_element(str);
   }
 
   const list = document.querySelector('#logos')
@@ -80,4 +76,5 @@
         font-weight: 900;
     }
 </style>
+<script src="/static/js/nav.js" defer></script>
 </html>
