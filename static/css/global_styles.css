@@ -72,11 +72,12 @@ nav {
 
 nav a {
     text-decoration: none;
-}
-
-nav > * {
     padding: 0.5em 1em;
     background: #c7c5c5;
+}
+
+nav a.current {
+    background: #a2c0ff;
 }
 
 header {

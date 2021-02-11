@@ -7,6 +7,9 @@ fetch("/collections/nav.json")
   .then(res => Object.keys(res).forEach(k => {
     const item = document.createElement('a')
     item.setAttribute('href', res[k])
+    if (res[k] === window.location.pathname) {
+      item.classList.add("current")
+    }
     item.innerText = k
     ne.appendChild(item)
   }))
