@@ -118,14 +118,16 @@ article > p {
     margin: 1em 0;
 }
 
-pre {
+code {
+    display: block;
+    white-space: pre;
     background: #eac6c6;
     padding: 0.5em;
 }
 
-span.pre {
-    background: #eac6c6;
-    white-space: pre;
+code.inline {
+    display: inline;
+    white-space: normal;
     padding: 0;
 }
 
