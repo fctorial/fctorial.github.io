@@ -1,5 +1,5 @@
-function make_element (str, base = "div") {
-  const p = document.createElement(base)
+function make_element (str) {
+  const p = document.createElement("template")
   p.innerHTML = str
-  return p.children[0]
+  return p.content.cloneNode(true).children[0]
 }

@@ -19,6 +19,7 @@
     .then(res => res.json())
     .then(ps => {
       const el = make_element(`<table><tbody></tbody></table>`)
+      console.log(el)
       ps.forEach(
         p => {
           const newChild = make_element(
@@ -33,7 +34,8 @@
           el.children[0].appendChild(
             newChild
           )
-        }      )
+        }
+      )
       const header = document.querySelector("header")
       header.parentNode.insertBefore(el, header.nextSibling)
     })
