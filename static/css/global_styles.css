@@ -76,6 +76,7 @@ nav {
     justify-content: space-around;
     align-items: baseline;
     margin-bottom: 1em;
+    grid-gap: 1em;
 }
 
 nav a {
