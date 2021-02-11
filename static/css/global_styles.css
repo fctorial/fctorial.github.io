@@ -83,6 +83,8 @@ nav a {
     text-decoration: none;
     padding: 0.5em 1em;
     background: #c7c5c5;
+    min-width: 10em;
+    text-align: center;
 }
 
 nav a.current {
@@ -138,9 +140,10 @@ code {
 code.inline {
     display: inline;
     white-space: normal;
-    padding: 0;
+    word-break: break-all;
+    padding: 0.1em 0.3em;
 }
 
 article {
-    line-height: 1.4em;
+    line-height: 1.6;
 }
