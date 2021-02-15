@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Intellij Logos</title>
     <link rel="stylesheet" href="static/css/global_styles.css">
-    <script src="/static/js/lib.js"></script>
-    <script src="/static/js/nav.js" defer></script>
+    <script constexpr src="/static/js/lib.js"></script>
+    <script constexpr src="/static/js/nav.js" defer></script>
 </head>
 <body>
-<noscript>
+<noscript constexpr>
     Please enable javascript
 </noscript>
 <header>
@@ -22,10 +22,11 @@
 
 </body>
 
-<script>
+<script constexpr>
   function last(l) {
     return l[l.length - 1]
   }
+
   function make_view(url) {
     const name = last(url.split('/')).replace('.png', '')
     const str = `
@@ -47,6 +48,9 @@
     })
     .then(() => {
       document.querySelector('#logos li:last-child .divider').remove()
+    })
+    .then(() => {
+      window._ConstexprJS_.compile()
     })
 
 </script>

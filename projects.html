@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Projects</title>
     <link rel="stylesheet" href="static/css/global_styles.css">
-    <script src="/static/js/lib.js"></script>
-    <script src="/static/js/nav.js" defer></script>
+    <script constexpr src="/static/js/lib.js"></script>
+    <script constexpr src="/static/js/nav.js" defer></script>
 </head>
 <body>
-<noscript>
+<noscript constexpr>
     Please enable javascript
 </noscript>
 <header>
     <h3 id="main_title">Projects</h3>
 </header>
-<script>
+<script constexpr>
     fetch("/collections/projects.json")
     .then(res => res.json())
     .then(ps => {
@@ -39,6 +39,10 @@
       const header = document.querySelector("header")
       header.parentNode.insertBefore(el, header.nextSibling)
     })
+      .then(() => {
+        window._ConstexprJS_.compile()
+      })
+
 </script>
 <style>
     table td {

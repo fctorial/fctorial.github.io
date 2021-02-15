@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>My Website</title>
     <link rel="stylesheet" href="static/css/global_styles.css">
-    <script src="/static/js/nav.js" defer></script>
+    <script constexpr src="/static/js/nav.js" defer></script>
 </head>
 <body>
-<noscript>
+<noscript constexpr>
     Please enable javascript
 </noscript>
 <header>
@@ -24,4 +24,7 @@
         margin: 1em;
     }
 </style>
+<script constexpr defer>
+  setTimeout(() => window._ConstexprJS_.compile(), 100)
+</script>
 </html>
