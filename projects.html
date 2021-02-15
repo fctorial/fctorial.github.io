@@ -1,54 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <title>Projects</title>
     <link rel="stylesheet" href="static/css/global_styles.css">
-    <script constexpr src="/static/js/lib.js"></script>
-    <script constexpr src="/static/js/nav.js" defer></script>
+    
+    
 </head>
 <body>
-<noscript constexpr>
-    Please enable javascript
-</noscript>
-<header>
-    <h3 id="main_title">Projects</h3>
-</header>
-<script constexpr>
-    fetch("/collections/projects.json")
-    .then(res => res.json())
-    .then(ps => {
-      const el = make_element(`<table><tbody></tbody></table>`)
-      console.log(el)
-      ps.forEach(
-        p => {
-          const newChild = make_element(
-            `
-          <tr>
-              <td><a href="${p.url}">${p.name}</a></td>
-              <td>${p.description}</td>
-          </tr>
-          `,
-            "table"
-          );
-          el.children[0].appendChild(
-            newChild
-          )
-        }
-      )
-      const header = document.querySelector("header")
-      header.parentNode.insertBefore(el, header.nextSibling)
-    })
-      .then(() => {
-        window._ConstexprJS_.compile()
-      })
 
-</script>
+<nav><a href="/">HOME</a><a href="/projects.html" class="current">PROJECTS</a></nav><header>
+    <h3 id="main_title">Projects</h3>
+</header><table><tbody><tr>
+              <td><a href="https://github.com/fctorial/tst">tst</a></td>
+              <td>Minimalist functional repl oriented testing framework for clojure(script)</td>
+          </tr><tr>
+              <td><a href="https://github.com/fctorial/parse_struct">parse_struct</a></td>
+              <td>Serialize/Deserialize binary data in clojure with an api similar to pointer casting in `C`.</td>
+          </tr><tr>
+              <td><a href="https://github.com/fctorial/DOOM">Vanilla DOOM</a></td>
+              <td>DOOM Open Source Release fixed to compile and run on modern linux with minimal changes.</td>
+          </tr><tr>
+              <td><a href="https://github.com/fctorial/world_clock_intellij">world_clock_intellij</a></td>
+              <td>Display a world clock widget in the status bar of Intellij IDEA</td>
+          </tr><tr>
+              <td><a href="https://github.com/fctorial/crisp">crisp</a></td>
+              <td>Yet another lisp interpreter</td>
+          </tr><tr>
+              <td><a href="https://github.com/fctorial/ConstexprJS">ConstexprJS</a></td>
+              <td>A static site generator without a DSL</td>
+          </tr></tbody></table>
+
 <style>
     table td {
         padding: 1em;
         border: 1px solid black;
     }
 </style>
-</body>
-</html>
+
+
+</body></html>
