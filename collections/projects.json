@@ -23,5 +23,10 @@
     "name": "crisp",
     "description": "Yet another lisp interpreter",
     "url": "https://github.com/fctorial/crisp"
+  },
+  {
+    "name": "ConstexprJS",
+    "description": "A static site generator without a DSL",
+    "url": "https://github.com/fctorial/ConstexprJS"
   }
 ]
