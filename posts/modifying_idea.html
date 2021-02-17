@@ -15,7 +15,9 @@
         to change the startup splash screen.
     </p>
     <ol>
-        <li>Execute <code>jar tf path/to/idea/lib/resources.jar | less</code> and search for "logo.png". Note the file name.</li>
+        <li>Execute
+          <code>jar tf path/to/idea/lib/resources.jar | less </code>
+          and search for "logo.png". Note the file name.</li>
         <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/intellij_logos.html">here</a>)</li>
         <li>Open the idea launcher script (idea.sh) in an editor</li>
         <li>Find this line and append your directory to the front: <code>CLASSPATH="$IDE_HOME/lib/bootstrap.jar"</code></li>
