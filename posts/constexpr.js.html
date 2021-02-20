@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>constexpr.js</title>
+
+    <link rel="stylesheet" href="/static/css/global_styles.css">
+</head>
+<body>
+
+<nav><a href="/">HOME</a><a href="/projects.html">PROJECTS</a></nav><header>
+    <h3 id="main_title">constexpr.js</h3>
+</header>
+
+<article>
+    <h4>What is constexpr.js?</h4>
+
+    <p>
+        <a>constexpr.js</a> is a static site generator for which doesn't force you to learn a domain specific language.
+        When using this tool, you use javascript and usual DOM manipulation methods to generate the webpage. The tool
+        will render the page using chrome, and once it has finished rendering, it will save the rendered state of the
+        page as a new html file. This new html file will look exactly like the original page once it finishes rendering.
+        For example, the tool converts <a href="/demos/constexpr.js/input.html">this</a> page into <a href="/demos/constexpr.js/output.html">this</a> page.
+        <br>
+        The generated page doesn't have to be completely static. In the above example, the heading is being animated
+        with javascript.
+    </p>
+
+    <h4>How to use it?</h4>
+
+    <p>
+        You will have to divide the javascript being used in your page into two parts. Runtime javascript and
+        compile time javascript, and annotate all compile time script tags with <code class="inline">constexpr</code> attribute:
+        <code>
+&lt;script constexpr&gt;
+    ...
+&lt;/script&gt;
+&lt;script constexpr src="/generate_page.js"&gt;&lt;/script&gt;
+        </code><br>
+        Runtime code must not depend on the compile time code, since that code will be stripped out before writing the output file.
+    </p>
+
+    <p>
+        Once the HTML generation code has finished rendering, it must call the <code class="inline">window._ConstexprJS_.compile()</code>
+        function. This function is injected into the page by the compiler.
+    </p>
+
+    <p>
+        The compiler can be installed like this: <code>npm i -g constexpr.js</code><br>
+
+        Command line usage: <code>constexpr.js --input=&lt;input_directory&gt; --output=&lt;output_directory&gt; [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</code><br>
+
+        The tool also copies resources (<code class="inline">css</code>, <code class="inline">images</code> etcetra)
+        that are requested by pages being rendered. HTML files/resources inside paths given in <code class="inline">--exclusions</code> are not processed/copied.
+    </p>
+
+    <p>
+        You can mark tags other than <code class="inline">script</code> with <code class="inline">constexpr</code> as well.
+        In the above example, the box at the top is marked constexpr, so it isn't present in the output page. This can be used to differentiate original website from generated website.
+    </p>
+
+    <h4>Notes</h4>
+
+    <ol>
+        <li>
+            You can use any web development technology to generate the html (react, angular, jquery etc). Just make sure that
+            <code class="inline">window._ConstexprJS_.compile()</code> is called <span style="font-style: italic;">after</span>
+            the page has finished rendering. React example:
+
+            <code>
+function MyPage(props) {
+    React.useEffect(() =&gt; {
+        window._ConstexprJS_.compile()
+    }, [])
+    return <div>Page content</div>
+}
+            </code>
+        </li>
+        <li>
+            In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
+            since that function is injected by the compiler. You can add this snippet near the top to fix that error:
+
+            <code>
+&lt;script constexpr&gt;
+  if (!window._ConstexprJS_) {
+    window._ConstexprJS_ = {
+      compile: () =&gt; {}
+    }
+  }
+&lt;/script&gt;
+            </code>
+        </li>
+        <li>
+            There might be multiple rendering tasks running in your page. You can manage all those tasks using <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
+            refcounting mechanism.
+
+            All the tasks will call <code class="inline">startLoading()</code> when they begin loading, and <code class="inline">endLoading()</code>
+            when they've finished loading. The compilation will be triggered when all the tasks have finished.
+        </li>
+        <li>
+            You should keep all the list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
+            <code class="inline">constexpr</code> code in the html will fetch these json files and render the page using them.
+            The directory containing this data should be excluded using <code class="inline">--exclusions</code> flag, so that the
+            resources inside it aren't copied over.
+        </li>
+        <li>
+            You can include dev utilites like <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/nav.js#L19">this</a> in the
+            original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
+        </li>
+        <li>
+            This whole website is rendered using javascript and constexpr.js. The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
+        </li>
+    </ol>
+</article>
+
+
+
+
+
+<style>
+    ol li {
+        margin: 2em 0;
+    }
+</style>
+
+</body></html>
