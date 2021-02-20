@@ -16,8 +16,8 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
+    font-size: 100%;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -101,11 +101,19 @@ header {
     width: 100%;
     text-align: center;
     text-decoration: underline;
-    font-size: 2em;
+}
+
+body {
+    font-size: 1em;
+}
+
+h3 {
+    font-size: 3em;
 }
 
 h4 {
-    font-size: 1.7em;
+    font-size: 2em;
+    color: #655ff5;
 }
 
 @media(max-width: 1024px) {
@@ -115,10 +123,10 @@ h4 {
     }
 
     nav {
-        font-size: 1.5em;
         flex-direction: column;
         align-items: center;
         grid-gap: 0;
+        font-size: 2em;
     }
 
     nav > a {
@@ -133,13 +141,19 @@ h4 {
     #main_title {
         order: 1;
     }
+
+    code {
+        font-size: 2em;
+    }
+
 }
 
 article {
     padding: 2em;
+    line-height: 1.6;
 }
 
-article > p {
+article p {
     margin: 1em 0;
 }
 
@@ -149,14 +163,15 @@ code {
     background: #cccaef;
     padding: 0.5em;
     overflow-x: auto;
+    margin-top: 5px;
 }
 
 code.inline {
-    display: inline;
     white-space: nowrap;
     padding: 0.1em 0.3em;
+    overflow-x: auto;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
-article {
-    line-height: 1.6;
-}
