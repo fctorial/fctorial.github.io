@@ -14,10 +14,10 @@
     <h4>What is constexpr.js?</h4>
 
     <p>
-        <a>constexpr.js</a> is a static site generator for which doesn't force you to learn a domain specific language.
+        <a>constexpr.js</a> is a static site generator which doesn't force you to learn a domain specific language.
         When using this tool, you use javascript and usual DOM manipulation methods to generate the webpage. The tool
         will render the page using chrome, and once it has finished rendering, it will save the rendered state of the
-        page as a new html file. This new html file will look exactly like the original page once it finishes rendering.
+        page as a new html file. This new html file will look exactly like the original page after it has finished rendering.
         For example, the tool converts <a href="/demos/constexpr.js/input.html">this</a> page into <a href="/demos/constexpr.js/output.html">this</a> page.
         <br>
         The generated page doesn't have to be completely static. In the above example, the heading is being animated
@@ -27,7 +27,7 @@
     <h4>How to use it?</h4>
 
     <p>
-        You will have to divide the javascript being used in your page into two parts. Runtime javascript and
+        You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with <code class="inline">constexpr</code> attribute:
         <code>
 &lt;script constexpr&gt;
@@ -54,7 +54,15 @@
 
     <p>
         You can mark tags other than <code class="inline">script</code> with <code class="inline">constexpr</code> as well.
-        In the above example, the box at the top is marked constexpr, so it isn't present in the output page. This can be used to differentiate original website from generated website.
+        In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
+        This can be used to differentiate original website from generated website:
+        <code>
+&lt;style constexpr&gt;
+    body {
+        border: 2px solid red;
+    }
+&lt;/style&gt;
+        </code>
     </p>
 
     <h4>Notes</h4>
@@ -70,7 +78,7 @@ function MyPage(props) {
     React.useEffect(() =&gt; {
         window._ConstexprJS_.compile()
     }, [])
-    return <div>Page content</div>
+    return &lt;div&gt;Page content&lt;/div&gt;
 }
             </code>
         </li>
