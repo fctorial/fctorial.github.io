@@ -104,6 +104,10 @@ header {
     font-size: 2em;
 }
 
+h4 {
+    font-size: 1.7em;
+}
+
 @media(max-width: 1024px) {
     body {
         width: 100%;
@@ -138,15 +142,14 @@ article > p {
 code {
     display: block;
     white-space: pre;
-    background: #eac6c6;
+    background: #cccaef;
     padding: 0.5em;
     overflow-x: auto;
 }
 
 code.inline {
     display: inline;
-    white-space: normal;
-    word-break: break-all;
+    white-space: nowrap;
     padding: 0.1em 0.3em;
 }
 
