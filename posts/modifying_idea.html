@@ -1,32 +1,32 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
     <title>Modifying Intellij Idea</title>
-
-    <link rel="stylesheet" href="/static/css/global_styles.css">
-</head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/static/css/global_styles.css"></head>
 <body>
-
-<nav><a href="/">HOME</a><a href="/projects.html">PROJECTS</a></nav><header>
-    <h3 id="main_title">Modifying Intellij Idea without using SDK or compiling it from source</h3>
-</header>
-<article>
+<nav><a href="/">
+              HOME
+          </a><a href="/projects.html">
+              PROJECTS
+          </a></nav><article>
+    <header>
+        <h3 id="main_title">Modifying Intellij Idea without using SDK or compiling it from source</h3>
+    </header>
     <p>
         You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. This guide shows how
         to change the startup splash screen.
     </p>
     <ol>
         <li>Execute
-          <code>jar tf path/to/idea/lib/resources.jar | less </code>
-          and search for "logo.png". Note the file name.</li>
+            <prog>jar tf path/to/idea/lib/resources.jar | less </prog>
+            and search for "logo.png". Note the file name.</li>
         <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/intellij_logos.html">here</a>)</li>
         <li>Open the idea launcher script (idea.sh) in an editor</li>
-        <li>Find this line and append your directory to the front: <code>CLASSPATH="$IDE_HOME/lib/bootstrap.jar"</code></li>
+        <li>Find this line and append your directory to the front: <prog>CLASSPATH="$IDE_HOME/lib/bootstrap.jar"</prog></li>
         <li>Chown this directory to root:root and chmod to 755</li>
     </ol>
     <p>
         Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well. Extract
-        a classfile from <code class="inline">lib</code>, decompile it (https://jdec.app), modify it, compile it
-        (<code class="inline">javac -cp "path/to/idea/lib/*" Main.java</code>) and place it a subdirectory corresponding
+        a classfile from <progi>lib</progi>, decompile it (https://jdec.app), modify it, compile it
+        (<progi>javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it a subdirectory corresponding
         to the package. Intellij is a huge project (multi million lines of code),
         so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
         change the ide in any way you want, however the changes won't be portable.
@@ -36,6 +36,7 @@
         (It might not work for you if your ide version is different)
     </p>
 </article>
+
 
 
 

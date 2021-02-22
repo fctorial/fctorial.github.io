@@ -42,8 +42,6 @@ table {
     border-spacing: 0;
 }
 
-/********************************************************************************/
-
 :root {
     background: white;
     box-sizing: border-box;
@@ -53,11 +51,14 @@ table {
     box-sizing: inherit;
 }
 
+/********************************************************************************/
+
 body {
     width: 50%;
+    min-width: 600px;
     margin: auto;
-    padding: 1em;
     background: #e7e3e3;
+    padding-top: 1em;
     font-family: monospace !important;
 }
 
@@ -73,7 +74,6 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: baseline;
-    margin-bottom: 1em;
     grid-gap: 1em;
 }
 
@@ -90,6 +90,11 @@ nav a.current {
     background: #a2c0ff;
 }
 
+article {
+    line-height: 1.6;
+    padding: 2em;
+}
+
 header {
     width: 100%;
     margin-bottom: 2em;
@@ -103,30 +108,30 @@ header {
     text-decoration: underline;
 }
 
-body {
-    font-size: 1em;
-}
-
 h3 {
-    font-size: 3em;
+    font-size: 2em;
 }
 
 h4 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: #655ff5;
+}
+
+h3, h4 {
+    font-weight: bold;
 }
 
 @media(max-width: 1024px) {
     body {
         width: 100%;
-        font-size: 2em;
+        font-size: 8vw;
+        padding-top: 0;
     }
 
     nav {
         flex-direction: column;
         align-items: center;
         grid-gap: 0;
-        font-size: 2em;
     }
 
     nav > a {
@@ -134,30 +139,19 @@ h4 {
     }
 
     header > * {
-        order: 10;
         margin-top: 0.5em;
     }
 
     #main_title {
         order: 1;
     }
-
-    code {
-        font-size: 2em;
-    }
-
-}
-
-article {
-    padding: 2em;
-    line-height: 1.6;
 }
 
 article p {
     margin: 1em 0;
 }
 
-code {
+prog {
     display: block;
     white-space: pre;
     background: #cccaef;
@@ -166,12 +160,13 @@ code {
     margin-top: 5px;
 }
 
-code.inline {
-    white-space: nowrap;
-    padding: 0.1em 0.3em;
+progi {
+    background: #cccaef;
     overflow-x: auto;
+    white-space: nowrap;
     max-width: 100%;
     display: inline-block;
-    vertical-align: bottom;
+    position: relative;
+    top: 0.5em;
 }
 

@@ -1,18 +1,16 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
     <title>constexpr.js</title>
-
-    <link rel="stylesheet" href="/static/css/global_styles.css">
-</head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/static/css/global_styles.css"></head>
 <body>
-
-<nav><a href="/">HOME</a><a href="/projects.html">PROJECTS</a></nav><header>
-    <h3 id="main_title">Constexpr.js</h3>
-</header>
-
-<article>
+<nav><a href="/">
+              HOME
+          </a><a href="/projects.html">
+              PROJECTS
+          </a></nav><article>
+    <header>
+        <h3 id="main_title">Constexpr.js</h3>
+    </header>
     <h4>What is constexpr.js?</h4>
-
     <p>
         <a href="https://github.com/fctorial/ConstexprJS">constexpr.js</a> is a static site generator which doesn't force you to learn a domain specific language.
         When using this tool, you use javascript and usual DOM manipulation methods to generate the webpage. The tool
@@ -28,41 +26,41 @@
 
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
-        compile time javascript, and annotate all compile time script tags with <code class="inline">constexpr</code> attribute:
-        <code>
+        compile time javascript, and annotate all compile time script tags with <progi>constexpr</progi> attribute:
+        <prog>
 &lt;script constexpr&gt;
     ...
 &lt;/script&gt;
 &lt;script constexpr src="/generate_page.js"&gt;&lt;/script&gt;
-        </code><br>
+        </prog><br>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the output file.
     </p>
 
     <p>
-        Once the HTML generation code has finished rendering, it must call the <code class="inline">window._ConstexprJS_.compile()</code>
+        Once the HTML generation code has finished rendering, it must call the <progi>window._ConstexprJS_.compile()</progi>
         function. This function is injected into the page by the compiler.
     </p>
 
     <p>
-        The compiler can be installed like this: <code>npm i -g constexpr.js</code><br>
+        The compiler can be installed like this: <prog>npm i -g constexpr.js</prog><br>
 
-        Command line usage: <code>constexpr.js --input=&lt;input_directory&gt; --output=&lt;output_directory&gt; [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</code><br>
+        Command line usage: <prog>constexpr.js --input=&lt;input_directory&gt; --output=&lt;output_directory&gt; [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</prog><br>
 
-        The tool also copies resources (<code class="inline">css</code>, <code class="inline">images</code> etcetra)
-        that are requested by pages being rendered. HTML files/resources inside paths given in <code class="inline">--exclusions</code> are not processed/copied.
+        The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
+        that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
 
     <p>
-        You can mark tags other than <code class="inline">script</code> with <code class="inline">constexpr</code> as well.
+        You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
         In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
         This can be used to differentiate original website from generated website:
-        <code>
+        <prog>
 &lt;style constexpr&gt;
     body {
         border: 2px solid red;
     }
 &lt;/style&gt;
-        </code>
+        </prog>
     </p>
 
     <h4>Notes</h4>
@@ -70,23 +68,23 @@
     <ol>
         <li>
             You can use any web development technology to generate the html (react, angular, jquery etc). Just make sure that
-            <code class="inline">window._ConstexprJS_.compile()</code> is called <span style="font-style: italic;">after</span>
+            <progi>window._ConstexprJS_.compile()</progi> is called <span style="font-style: italic;">after</span>
             the page has finished rendering. React example:
 
-            <code>
+            <prog>
 function MyPage(props) {
     React.useEffect(() =&gt; {
         window._ConstexprJS_.compile()
     }, [])
     return &lt;div&gt;Page content&lt;/div&gt;
 }
-            </code>
+            </prog>
         </li>
         <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
             since that function is injected by the compiler. You can add this snippet near the top to fix that error:
 
-            <code>
+            <prog>
 &lt;script constexpr&gt;
   if (!window._ConstexprJS_) {
     window._ConstexprJS_ = {
@@ -94,19 +92,19 @@ function MyPage(props) {
     }
   }
 &lt;/script&gt;
-            </code>
+            </prog>
         </li>
         <li>
             There might be multiple rendering tasks running in your page. You can manage all those tasks using <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
             refcounting mechanism.
 
-            All the tasks will call <code class="inline">startLoading()</code> when they begin loading, and <code class="inline">endLoading()</code>
+            All the tasks will call <progi>startLoading()</progi> when they begin loading, and <progi>endLoading()</progi>
             when they've finished loading. The compilation will be triggered when all the tasks have finished.
         </li>
         <li>
             You should keep all the list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
-            <code class="inline">constexpr</code> code in the html will fetch these json files and render the page using them.
-            The directory containing this data should be excluded using <code class="inline">--exclusions</code> flag, so that the
+            <progi>constexpr</progi> code in the html will fetch these json files and render the page using them.
+            The directory containing this data should be excluded using <progi>--exclusions</progi> flag, so that the
             resources inside it aren't copied over.
         </li>
         <li>
@@ -118,6 +116,7 @@ function MyPage(props) {
         </li>
     </ol>
 </article>
+
 
 
 
