@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
     <title>constexpr.js</title>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/static/css/global_styles.css"></head>
+<meta charset="UTF-8"><link rel="icon" href="/favicon.png" sizes="420x420" type="image/png"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"></head>
 <body>
 <nav><a href="/">
               HOME
@@ -27,11 +27,11 @@
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with <progi>constexpr</progi> attribute:
-        <prog>
-&lt;script constexpr&gt;
-    ...
-&lt;/script&gt;
-&lt;script constexpr src="/generate_page.js"&gt;&lt;/script&gt;
+        <prog class=" language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token operator">...</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/generate_page.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
         </prog><br>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the output file.
     </p>
@@ -42,26 +42,14 @@
     </p>
 
     <p>
-        The compiler can be installed like this: <prog>npm i -g constexpr.js</prog><br>
+        The compiler can be installed like this: <prog class=" language-bash"><span class="token function">npm</span> i -g constexpr.js</prog><br>
 
-        Command line usage: <prog>constexpr.js --input=&lt;input_directory&gt; --output=&lt;output_directory&gt; [--exclusions=path1:path2] [--verbose] [--jobs=n] [--noheadless]</prog><br>
+        Command line usage: <prog class=" language-bash">constexpr.js --input<span class="token operator">=</span><span class="token string">"&lt;input_directory&gt;"</span> --output<span class="token operator">=</span><span class="token string">"&lt;output_directory&gt;"</span> <span class="token punctuation">[</span>--exclusions<span class="token operator">=</span>path1:path2<span class="token punctuation">]</span> <span class="token punctuation">[</span>--verbose<span class="token punctuation">]</span> <span class="token punctuation">[</span>--jobs<span class="token operator">=</span>n<span class="token punctuation">]</span> <span class="token punctuation">[</span>--noheadless<span class="token punctuation">]</span></prog><br>
 
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
 
-    <p>
-        You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
-        In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
-        This can be used to differentiate original website from generated website:
-        <prog>
-&lt;style constexpr&gt;
-    body {
-        border: 2px solid red;
-    }
-&lt;/style&gt;
-        </prog>
-    </p>
 
     <h4>Notes</h4>
 
@@ -71,27 +59,39 @@
             <progi>window._ConstexprJS_.compile()</progi> is called <span style="font-style: italic;">after</span>
             the page has finished rendering. React example:
 
-            <prog>
-function MyPage(props) {
-    React.useEffect(() =&gt; {
-        window._ConstexprJS_.compile()
-    }, [])
-    return &lt;div&gt;Page content&lt;/div&gt;
-}
+            <prog class=" language-jsx">
+<span class="token keyword">function</span> <span class="token function">MyPage</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">Page content</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token punctuation">}</span>
+            </prog>
+        </li>
+        <li>
+            You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
+            In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
+            This can be used to differentiate original website from generated website:
+            <prog class=" language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 2px solid red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
             </prog>
         </li>
         <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
             since that function is injected by the compiler. You can add this snippet near the top to fix that error:
 
-            <prog>
-&lt;script constexpr&gt;
-  if (!window._ConstexprJS_) {
-    window._ConstexprJS_ = {
-      compile: () =&gt; {}
-    }
-  }
-&lt;/script&gt;
+            <prog class=" language-js">
+<span class="token operator">&lt;</span>script constexpr<span class="token operator">&gt;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span>_ConstexprJS_ <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
             </prog>
         </li>
         <li>
@@ -112,7 +112,8 @@ function MyPage(props) {
             original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js. The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
+            This whole website is rendered using javascript and constexpr.js (syntax highlighting too). Nothing other than the demo uses runtime javascript.
+            The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
         </li>
     </ol>
 </article>
