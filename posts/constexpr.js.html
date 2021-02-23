@@ -113,7 +113,17 @@
             original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js. Nothing other than the demo uses runtime javascript.
+            This whole website is rendered using javascript and constexpr.js. Nothing other than the demo uses runtime javascript:
+            <prog>
+$ tokei -t=javascript
+===============================================================================
+Language            Files        Lines         Code     Comments       Blanks
+===============================================================================
+JavaScript              1            2            1            0            1
+===============================================================================
+Total                   1            2            1            0            1
+===============================================================================
+            </prog>
             The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
         </li>
     </ol>

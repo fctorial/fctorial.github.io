@@ -161,6 +161,10 @@ prog {
     margin-top: 5px;
 }
 
+prog:not([class]) {
+    background: #cccaef;
+}
+
 prog * {
     background: none !important;
 }
