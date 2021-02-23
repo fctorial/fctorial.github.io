@@ -161,6 +161,10 @@ prog {
     margin-top: 5px;
 }
 
+prog * {
+    background: none !important;
+}
+
 progi {
     font-family: monospace;
     background: #cccaef;
