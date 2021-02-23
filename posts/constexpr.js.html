@@ -44,12 +44,12 @@
     <p>
         The compiler can be installed like this: <prog class=" language-bash"><span class="token function">npm</span> i -g constexpr.js</prog><br>
 
-        Command line usage: <prog class=" language-bash">constexpr.js --input<span class="token operator">=</span><span class="token string">"&lt;input_directory&gt;"</span> --output<span class="token operator">=</span><span class="token string">"&lt;output_directory&gt;"</span> <span class="token punctuation">[</span>--exclusions<span class="token operator">=</span>path1:path2<span class="token punctuation">]</span> <span class="token punctuation">[</span>--verbose<span class="token punctuation">]</span> <span class="token punctuation">[</span>--jobs<span class="token operator">=</span>n<span class="token punctuation">]</span> <span class="token punctuation">[</span>--noheadless<span class="token punctuation">]</span></prog><br>
+        Command line usage:
+        <prog class=" language-bash">constexpr.js --input<span class="token operator">=</span><span class="token string">"&lt;input_directory&gt;"</span> --output<span class="token operator">=</span><span class="token string">"&lt;output_directory&gt;"</span> <span class="token punctuation">[</span>--exclusions<span class="token operator">=</span>path1:path2<span class="token punctuation">]</span> <span class="token punctuation">[</span>--verbose<span class="token punctuation">]</span> <span class="token punctuation">[</span>--jobs<span class="token operator">=</span>n<span class="token punctuation">]</span> <span class="token punctuation">[</span>--noheadless<span class="token punctuation">]</span> <span class="token punctuation">[</span>--jobtimeout<span class="token punctuation">]</span></prog><br>
 
         The tool also copies resources (<progi>css</progi>, <progi>images</progi> etcetra)
         that are requested by pages being rendered. HTML files/resources inside paths given in <progi>--exclusions</progi> are not processed/copied.
     </p>
-
 
     <h4>Notes</h4>
 
@@ -81,6 +81,9 @@
             </prog>
         </li>
         <li>
+            Client code in the page can signal the compiler to skip the current file by calling <progi>window._ConstexprJS_.abort(message)</progi>.
+        </li>
+        <li>
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger function,
             since that function is injected by the compiler. You can add this snippet near the top to fix that error:
 
@@ -88,7 +91,8 @@
 <span class="token operator">&lt;</span>script constexpr<span class="token operator">&gt;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     window<span class="token punctuation">.</span>_ConstexprJS_ <span class="token operator">=</span> <span class="token punctuation">{</span>
-      <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">abort</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
