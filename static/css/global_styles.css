@@ -126,7 +126,7 @@ em {
     font-style: italic;
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 800px) {
     body {
         width: 100%;
         font-size: 8vw;
@@ -152,7 +152,7 @@ em {
     }
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 800px) {
     :root {
         padding: 1em;
     }
