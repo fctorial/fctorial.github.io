@@ -122,6 +122,10 @@ h3, h4 {
     font-weight: bold;
 }
 
+em {
+    font-style: italic;
+}
+
 @media(max-width: 1024px) {
     body {
         width: 100%;
