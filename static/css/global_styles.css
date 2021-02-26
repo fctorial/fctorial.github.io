@@ -152,6 +152,15 @@ em {
     }
 }
 
+@media(min-width: 1024px) {
+    :root {
+        padding: 1em;
+    }
+    body {
+        box-shadow: 0 0 50px #222222;
+    }
+}
+
 article p {
     margin: 1em 0;
 }
