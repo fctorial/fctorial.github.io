@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
     <title>constexpr.js</title>
 <meta charset="UTF-8"><link rel="icon" href="/favicon.png" sizes="420x420" type="image/png"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"></head>
-<body>
+<body><img src="/static/img/bg.jpg" style="z-index: -2; position: fixed; top: 0; left: 0; bottom: 0; right: 0;"><div style="background: #00000044;z-index: -2; position: fixed; top: 0; left: 0; bottom: 0; right: 0;"></div>
 <nav><a href="/">
               HOME
           </a><a href="/projects.html">
@@ -130,7 +130,8 @@
             original website. It reloads the page whenever it's focused. It won't be in the output since it's used as constexpr.
         </li>
         <li>
-            This whole website is rendered using javascript and constexpr.js. Nothing other than the demo uses runtime javascript:
+            This whole website is rendered using javascript and constexpr.js The html files contains only the page specific stuff.
+            All the styling and theming is done by constexpr code. Nothing other than the demo uses runtime javascript:
             <prog>
 $ tokei -t=javascript
 ===============================================================================
