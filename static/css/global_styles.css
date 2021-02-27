@@ -98,15 +98,7 @@ article {
 
 header {
     width: 100%;
-    margin-bottom: 2em;
-    border-bottom: 1px solid black;
-    padding-bottom: 1em;
-}
-
-#main_title {
-    width: 100%;
     text-align: center;
-    text-decoration: underline;
 }
 
 h3 {
@@ -119,6 +111,7 @@ h4 {
 }
 
 h3, h4 {
+    line-height: 1em;
     font-weight: bold;
 }
 
