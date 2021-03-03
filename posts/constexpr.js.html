@@ -20,15 +20,14 @@
         When using this tool, you use javascript and usual DOM manipulation methods to generate the website. The tool
         will render the page using chrome, and once it has finished rendering, it will save the rendered state of the
         page as a new html file. This new html file will look exactly like the original page after it has finished rendering.
-        For example, the tool converts <a href="/demos/constexpr.js/input.html">this</a> page into <a href="/demos/constexpr.js/output.html">this</a> page.
+        This website is built using constexpr.js.
         <br>
         <br>
         It also strips the constexpr javascript out, potentially reducing download size for the website users drastically. Any piece of javascript
         code that just generates some html can be made constexpr.
         <br>
         <br>
-        The generated page doesn't have to be completely static. In the above example, the heading is being animated
-        with javascript.
+        The generated page doesn't have to be completely static. For example, try hovering over the images on <a href="/posts/intellij_logos.html">this</a> page.
     </p>
 
     <h4>How to use it?</h4>
@@ -137,15 +136,19 @@
         </li>
         <li>
             This whole website is rendered using javascript and constexpr.js The html files contains only the page specific stuff.
-            All the styling and theming is done by constexpr code. Nothing other than the demo uses runtime javascript:
+            All the styling and theming is done by constexpr code. Nothing other than the image background switching on <a href="/posts/intellij_logos.html">this</a> page
+            uses runtime javascript:
             <prog>
-$ tokei -t=javascript
+$ tokei -t=html,javascript
 ===============================================================================
 Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
-JavaScript              1            2            1            0            1
+HTML                    7          665          613            0           52
+|- CSS                  4           55           51            0            4
+|- JavaScript           1           17           17            0            0
+(Total)                            737          681            0           56
 ===============================================================================
-Total                   1            2            1            0            1
+Total                   7          737          681            0           56
 ===============================================================================
             </prog>
             The original sources can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
