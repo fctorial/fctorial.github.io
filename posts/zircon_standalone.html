@@ -37,9 +37,8 @@
         Fuchsia permission model builds on top of zircon. It locks down some capabilities like process creation behind
         system services. Access to those services is managed by the component framework and capability routing. So a
         regular userspace process that isn't bootsvc (the init process of fuchsia) cannot use the full extent of zircon
-        system calls. Zircon
-        Standalone allows you to compile and test an init process separate from the fuchsia source tree. The kernel and
-        bootloader are built from the fuchsia source tree and you supply the userspace.
+        system calls. For fuchsia project, zircon is a means to an end, the end being the complete operating system. Zircon
+        standalone focuses on zircon as an end in itself.
     </p>
     <h4>Setup</h4>
     <ol>
