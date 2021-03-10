@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
     <title>constexpr.js</title>
-<meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="26x26" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"></head>
+<meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"></head>
 <body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg"><nav><a href="/">
               HOME
@@ -35,7 +35,10 @@
     <p>
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with <progi>constexpr</progi> attribute:
-        <prog class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">    <span class="token operator">...</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/generate_page.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog><br>
+        <prog class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token operator">...</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/generate_page.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog><br>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the output file.
         See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code management
         tips for constexpr.js.
@@ -86,7 +89,11 @@
             You can mark tags other than <progi>script</progi> with <progi>constexpr</progi> as well.
             In the above example, the box at the top is marked constexpr, so it isn't present in the output page.
             This can be used to differentiate original website from generated website:
-            <prog class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>    <span class="token property">border</span><span class="token punctuation">:</span> 2px solid red<span class="token punctuation">;</span><span class="token punctuation">}</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></prog>
+            <prog class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 2px solid red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></prog>
         </li>
         <li>
             Client code in the page can signal the compiler to skip the current file by calling <progi>window._ConstexprJS_.abort(message)</progi>.
@@ -95,7 +102,14 @@
             In the original webpage, you'll see a console error when the code tries to call the compilation trigger functions,
             since those functions are injected by the compiler. You can add this snippet near the top to fix that error:
 
-            <prog class=" language-js"><span class="token operator">&lt;</span>script constexpr<span class="token operator">&gt;</span>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">)</span> <span class="token punctuation">{</span>    window<span class="token punctuation">.</span>_ConstexprJS_ <span class="token operator">=</span> <span class="token punctuation">{</span>      <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>      <span class="token function-variable function">abort</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></prog>
+            <prog class=" language-js"><span class="token operator">&lt;</span>script constexpr<span class="token operator">&gt;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span>_ConstexprJS_ <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">abort</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></prog>
         </li>
         <li>
             There might be multiple rendering tasks running in your page. You can manage all those tasks using <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/index.js">this</a>
