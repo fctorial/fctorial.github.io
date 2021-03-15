@@ -198,6 +198,32 @@ blockquote {
     border-left: 5px solid #f8aeae;
 }
 
+#tags_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 1em;
+}
+
+#tags_list div {
+    text-align: center;
+    background: #bcbcec;
+    min-width: 8em;
+    padding: 0.2em;
+    font-size: 0.8em;
+    border-radius: 10em;
+    cursor: pointer;
+}
+#tags_list a {
+    text-decoration: none;
+}
+
+#tags_list div:hover {
+    background: #a3a3e5;
+}
+
 .bg {
     z-index: -2;
     position: fixed;
