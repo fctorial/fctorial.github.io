@@ -205,14 +205,14 @@ blockquote {
     grid-gap: 1em;
     flex-wrap: wrap;
     width: 100%;
-    margin: 1em;
+    margin: 1em 0;
 }
 
 #tags_list div {
     text-align: center;
     background: #bcbcec;
     min-width: 8em;
-    padding: 0.2em;
+    padding: 0.2em 1em;
     font-size: 0.8em;
     border-radius: 10em;
     cursor: pointer;
