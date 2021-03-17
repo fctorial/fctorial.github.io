@@ -206,9 +206,11 @@ blockquote {
     flex-wrap: wrap;
     width: 100%;
     margin: 1em 0;
+    list-style: none;
+    padding: 0;
 }
 
-#tags_list div {
+.tag_element {
     text-align: center;
     background: #bcbcec;
     min-width: 8em;
@@ -217,12 +219,12 @@ blockquote {
     border-radius: 10em;
     cursor: pointer;
 }
-#tags_list a {
+.tag_element a {
     text-decoration: none;
     color: black !important;
 }
 
-#tags_list div:hover {
+.tag_element:hover {
     background: #a3a3e5;
 }
 
