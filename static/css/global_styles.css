@@ -198,7 +198,7 @@ blockquote {
     border-left: 5px solid #f8aeae;
 }
 
-#tags_list {
+.tags_list {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -210,16 +210,18 @@ blockquote {
     padding: 0;
 }
 
+.tags_list .tag_element {
+    display: block;
+}
+
 .tag_element {
     text-align: center;
-    background: #bcbcec;
+    cursor: pointer;
     min-width: 8em;
     padding: 0.2em 1em;
     font-size: 0.8em;
     border-radius: 10em;
-    cursor: pointer;
-}
-.tag_element a {
+    background: #bcbcec;
     text-decoration: none;
     color: black !important;
 }
