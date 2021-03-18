@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>fctorial</title>
+  <link>https://fctorial.github.io</link>
+  <description>A blog where I'll post (mostly tech related) stuff</description>
+
+  <item>
+      <title>All Intellij Idea CE Logos</title>
+      <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+  </item>
+  <item>
+      <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
+      <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+  </item>
+  <item>
+      <title>Zero Cost Abstractions in Web Development</title>
+      <link>https://fctorial.github.io/posts/constexpr.js.html</link>
+  </item>
+  <item>
+      <title>Runtime/Compile time code separation with constexpr.js</title>
+      <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
+  </item>
+  <item>
+      <title>Zircon Standalone</title>
+      <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
+  </item>
+  <item>
+      <title>Generator pages in constexpr.js</title>
+      <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
+  </item>
+  <item>
+      <title>Reading The Tea Leaves</title>
+      <link>https://fctorial.github.io/posts/youtube_python_bug.html</link>
+  </item>
+
+</channel>
+</rss>
