@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Reading the tea leaves</title></head><body><nav><a href="/">
+              HOME
+          </a><a href="/projects.html">
+              PROJECTS
+          </a><a href="/tags.html">
+              TAGS
+          </a></nav>
+<img class="bg" id="main_bg" src="/static/img/bg.jpg"><article>
+    <header><h3 id="main_title">Reading the tea leaves</h3></header><ul class="tags_list"><li><a class="tag_element" href="/tags/python.html">python</a></li><li><a class="tag_element" href="/tags/youtube.html">youtube</a></li></ul><div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div><p>
+        I used to encounter a bug in youtube website a couple of years ago. In this article, I'm going to talk about a
+        possible cause of that bug.
+    </p>
+    <p>
+        I believe this bug slipped past the QA because it only manifests itself only when you're on a flaky 2G connection
+        (&lt;50kbps), and apparently all the web developers/testers use a 1GB connection with 5ms ping, that never disconnects. However, I have to
+        say that youtube webapp is one of the highest quality websites I've seen. It handles network disconnects and
+        reconnects flawlessly, and keyboard controls are better than any other streaming platform.
+    </p>
+    <h4>The bug</h4>
+    <p>
+        The bug was that if you were watching videos at 144p (which is the only option at that bandwidth), and the network
+        disconnects, after the reconnection, the quality setting on the video changes to the highest quality. The cause
+        of this bug is obvious if you know that the youtube backend is written in python.
+    </p>
+    <h4>The cause</h4>
+    <p>
+        In python, you can index an array with a negative number to index it in reverse.
+    </p>
+    <prog class=" language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">144</span><span class="token punctuation">,</span> <span class="token number">240</span><span class="token punctuation">,</span> <span class="token number">360</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">,</span> <span class="token number">720</span><span class="token punctuation">,</span> <span class="token number">1080</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token number">144</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token number">1080</span></prog>
+    <p>
+        I think what use to happen was that I'd selected index <progi>0</progi> as my preferred quality setting. The
+        backend saw that my bandwidth wasn't good enough, and decremented my quality setting to <progi>-1</progi>. Which
+        just caused the video to lag even more.
+    </p>
+    <p>
+        I think this bug is still there. I remember seeing this bug a couple months ago (I'm not sure). You see, bandwidth
+        isn't the only reason to play videos in lowest quality. Playing HD video takes a non trivial amount of cpu, so I
+        switch the quality on music videos to lowest whenever I'm compiling something.
+    </p>
+</article>
+
+
+
+
+
+
+
+
+
+
+</body></html>
