@@ -9,30 +9,48 @@
   <item>
       <title>All Intellij Idea CE Logos</title>
       <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+      
+      <category>intellij</category>
   </item>
   <item>
       <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
       <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+      
+      <category>intellij</category>
   </item>
   <item>
       <title>Zero Cost Abstractions in Web Development</title>
       <link>https://fctorial.github.io/posts/constexpr.js.html</link>
+      
+      <category>constexpr.js</category>
+      <category>web</category>
   </item>
   <item>
       <title>Runtime/Compile time code separation with constexpr.js</title>
       <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
+      
+      <category>constexpr.js</category>
+      <category>web</category>
   </item>
   <item>
       <title>Zircon Standalone</title>
       <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
+      
+      <category>zircon_standalone</category>
   </item>
   <item>
       <title>Generator pages in constexpr.js</title>
       <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
+      
+      <category>constexpr.js</category>
+      <category>web</category>
   </item>
   <item>
       <title>Reading The Tea Leaves</title>
       <link>https://fctorial.github.io/posts/youtube_python_bug.html</link>
+      
+      <category>web</category>
+      <category>python</category>
   </item>
 
 </channel>
