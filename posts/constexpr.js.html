@@ -12,13 +12,13 @@
     </p>
     <h4>What is constexpr?</h4>
     <p>
-        Constexpr is a feature found in statically compiled programming languages that allows evaluation of expressions a
-        program at compile time. Different languages have use different terminology for it. For example,
+        Constexpr is a feature found in statically compiled programming languages that allows evaluation of expressions in a
+        program at compile time. Different languages have different terminology for it. For example,
         in zig lang, it's called <progi>comptime</progi>. Common lisp macros, in lisps that compile to native code, might
         also be grouped in this category.
     </p>
     <p>
-        This allows automatic generation of complex static data at compile time, and the runtime code can just use the
+        This feature allows automatic generation of complex static data at compile time, and the runtime code can just use the
         result of that compile time evaluated data. Variable inlining is a simple form of compile time evaluation.<br>
         Ideally, the language/compiler should make it possible to turn any eligible piece of code "constexpr" with some
         annotations. The eligibility criteria being that the code must not depend on any runtime data.
@@ -74,7 +74,7 @@
 
     <p>
         The compiler can be installed like this:
-        <prog class=" language-bash"><span class="token function">npm</span> i -g constexpr.js</prog>
+        <prog class=" language-bash"><span class="token function">npm</span> i -g constexpr.js@latest</prog>
         <br>
     </p>
 
