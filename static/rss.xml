@@ -52,6 +52,13 @@
       <category>web</category>
       <category>python</category>
   </item>
+  <item>
+      <title>Syntax Highlighting in a Webpage Without Javascript</title>
+      <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
+      
+      <category>constexpr.js</category>
+      <category>web</category>
+  </item>
 
 </channel>
 </rss>
