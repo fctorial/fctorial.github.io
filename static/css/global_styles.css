@@ -163,7 +163,7 @@ article p, article blockquote {
     margin: 1em 0;
 }
 
-prog {
+prog, formula {
     font-family: monospace;
     display: block;
     white-space: pre;
