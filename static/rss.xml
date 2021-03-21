@@ -51,6 +51,7 @@
       
       <category>web</category>
       <category>python</category>
+      <category>essay</category>
   </item>
   <item>
       <title>Syntax Highlighting in a Webpage Without Javascript</title>
@@ -58,6 +59,20 @@
       
       <category>constexpr.js</category>
       <category>web</category>
+  </item>
+  <item>
+      <title>Constexpr.js API Documentation</title>
+      <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
+      
+      <category>constexpr.js</category>
+      <category>web</category>
+  </item>
+  <item>
+      <title>User Interface as an API for Humans</title>
+      <link>https://fctorial.github.io/posts/ui_api.html</link>
+      
+      <category>ui</category>
+      <category>essay</category>
   </item>
 
 </channel>
