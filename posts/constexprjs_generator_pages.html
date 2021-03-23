@@ -7,14 +7,14 @@
           </a></nav>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg"><article>
     <header><h3 id="main_title">Generator pages in constexpr.js</h3></header><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li></ul><div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div><p>
-        Generator pages is a feature in constexpr.js that allows you to generate an arbitrary number of pages.
+        Generator pages is a feature in constexpr.js that allows you to generate an arbitrary number of HTML pages.
         For example, you might want to generate a webpage for each tag in your blog, or you might want to paginate
         the list of posts in your blog.
     </p>
     <p>
         The main entry point for this feature is the <progi>window._ConstexprJS_.addPaths</progi> function. By default,
         constexpr.js compiler creates one output page for each html file in the input directory (unless <progi>abort</progi>
-        is called). This function takes an array as input and adds an additional page for each entry in that array. The
+        is called). <progi>addPaths</progi> takes an array as input and adds an additional page for each entry in that array. The
         array elements must be objects with two keys, <progi>generator</progi> and <progi>output</progi>:
     </p>
     <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addPaths</span><span class="token punctuation">(</span>
@@ -34,7 +34,7 @@
         result to <progi>/posts/2021-jan.html</progi>.
     </p>
     <p>
-        Think of the generator html as a function that takes input in url parameters/hash and produces the intended
+        Think of the generator page as a function that takes input in url parameters/hash and produces the intended
         page as output. Try to make this a pure function.
     </p>
     <p>
@@ -45,8 +45,11 @@
     <p>
         The compiler also maps all the links to generator page (<progi>/posts/generator_from_date.html?2021-jan</progi>)
         to the correct output HTMLs (<progi>/posts/2021-jan.html</progi>). This ensures that the original and the final
-        website look and work exactly the same even if you use this feature.
+        website look and work exactly the same when you use this feature.
     </p>
+    <blockquote>
+        See pages tagged with <a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a> for more guides.
+    </blockquote>
 </article>
 
 

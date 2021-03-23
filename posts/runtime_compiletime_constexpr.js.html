@@ -7,46 +7,56 @@
           </a></nav>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg"><article>
     <header><h3 id="main_title">Runtime/Compile time code separation with constexpr.js</h3></header><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li></ul><div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div><p>
-        <a href="/posts/constexpr.js.html">constexpr.js</a> is a static site generator. However, the sites generated with it don't have to be
-        completely javascript free. Try hovering over the images in <a href="/posts/intellij_logos.html">this</a> page.
-        The images list in this page is generated statically with constexpr.js but the background is being manipulated at runtime with javascript.
+        <a href="/posts/constexpr.js.html">constexpr.js</a> allows you to execute some of the javascript in your website
+        before it is deployed. I'll refer to such javascript as <progi>constepxr</progi>. You can use constexpr code for
+        programmatically generating HTML in your website.
     </p>
     <p>
-        The constexpr code used for generating html is stripped out during site generation, so the runtime code must not
-        depend on it. So there has to be a clear boundary between the runtime code and compile time code. In this article
-        I'll share some tips for managing code when building a site with constexpr.js.
+        The constexpr code is stripped out by the compiler, so the runtime code must not depend on it. Hence, there has to
+        be a clear boundary between the runtime code and compile time code. In this article I'll share some tips for
+        managing code when building a site with constexpr.js. I'll be using <a href="/posts/intellij_logos.html">this</a>
+        page as an example in this article. Try hovering over the images. The images list in this page is generated
+        statically with constexpr.js but the background is being manipulated at runtime with javascript.<br>
+        <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/posts/intellij_logos.html">Original page source</a><br>
+        <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">Compiler output</a>
     </p>
     <p>
-        The first thing you should do when building a site is to write the html generation code. In the above example, it's
-        the code that generates the images list, the background and the navbar.
-        <br>
-        The code for generating images list is kept in the html file itself since it does page specific stuff and the rest is
-        kept in a file named <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js">renderer.js</a>,
-        which contains site global theming, and it's included by every page on the site. If I want something to appear on every page
-        on this site (A footer, syntax highlighting etc), this is where I'll add it.
+        Javascript execution in your website should be split into two phases. The compilation phase and the runtime
+        phase. The first thing you should do when building a site is to write the compilation phase code. In the above
+        example, it's the code that generates the images list, the background and the navbar. All the compilation phase
+        code should be marked as <progi>constexpr</progi>.
     </p>
     <p>
-        Constexpr javascript in the <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/posts/intellij_logos.html">html</a>
-        also generates a <progi>fixed</progi> background image for each logo in the page, with initial opacity set to <progi>0</progi>.
-        There's a non-constexpr function called <progi>initHover</progi> that sets up event handlers for the logo images, which just
-        toggle the <progi>opacity</progi> value for the background images. This function is supposed to trigger the runtime javascript.
+        There should be a regular, non-constexpr method in your website which will bootstrap the runtime code execution.
+        (<progi>initHover</progi> in the above example). Once the compilation phase code has finished rendering the page,
+        it should append a script tag to the DOM that calls this method:
     </p>
-    <p>
-        Once the html generation code has done it's job, it appends a script tag that calls the initialization function:
         <prog class=" language-javascript"><span class="token operator">...</span>
-    <span class="token keyword">const</span> init <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
-    init<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'initHover()'</span>
-    document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
+<span class="token keyword">const</span> init <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
+init<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'initHover()'</span>
+document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
 <span class="token operator">...</span></prog>
-        Always add new script tags at the end of the document (or at least after the last script tag). This ensures that the
-        resulting page state is what you would've gotten if you'd loaded a document containing the final HTML. Do not
-        use <progi>defer</progi> attribute on script tags. Keep the javascript execution as predictable as possible.
-    </p>
     <p>
-        The <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">output HTML</a>
-        contains the generated list of images, a script tag defining the initialization function, and a script tag calling the
-        initialization function. All the compilation/generation code is stripped out.
+        This will accomplish two things:
     </p>
+    <ol>
+        <li>
+            Newly added script tags are executed immediately by the browser. So the<progi>initHover</progi> method will
+            be called after the HTML structure has been generated in the original website.
+        </li>
+        <li>
+            Since the constexpr code is stripped out before snapshotting the website, the output HTML will contain only
+            three things:
+            <ol>
+                <li>Generated HTML</li>
+                <li>Runtime bootstrap function <progi>initHover</progi></li>
+                <li>A script tag that calls the bootstrap method</li>
+            </ol>
+        </li>
+    </ol>
+    <blockquote>
+        See pages tagged with <a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a> for more guides.
+    </blockquote>
 </article>
 
 
