@@ -75,7 +75,7 @@
         use <em>any</em> javascript library/framework. This code is all you need to integrate prism.js
         in your website.
     </p>
-    <prog class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <prog id="syntax_highlight_code" class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     el<span class="token punctuation">.</span>textContent <span class="token operator">=</span> el<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -89,7 +89,7 @@
       <span class="token punctuation">}</span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">)</span>
     document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>
-      <span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;link rel="stylesheet" href="/static/css/prism.css"&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></prog>
@@ -97,7 +97,7 @@
         As you can see, it's regular javascript code that uses the prism.js api. Using <progi>katex</progi> for rendering
         math formulae is just as simple:
     </p>
-    <prog class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <prog id="render_latex_code" class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> blocks <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'formula'</span><span class="token punctuation">)</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>blocks<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">await</span> <span class="token function">evalScript</span><span class="token punctuation">(</span><span class="token string">"/static/packages/katex/katex.js"</span><span class="token punctuation">)</span>
