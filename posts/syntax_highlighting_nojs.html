@@ -50,13 +50,13 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></prog>
     <p>
-        As you see, it's just a bit of HTML and CSS. The clients shouldn't have to download and execute javascript to highlight
-        code in a webpage. As a matter of fact, syntax highlighting on this page doesn't use javascript either. You can
+        As you can see, it's just a bit of HTML and CSS. The clients shouldn't have to download and execute javascript to highlight
+        code in a webpage. As a matter of fact, syntax highlighting on this page works without javascript. You can
         verify that by disabling javascript in your browser and reloading this page.
     </p>
     <p>
-        It's also better UX wise. You won't see the code in black and white while the syntax highlighting code is doing it's job.
-        So you don't have to do any tricks to avoid that either. (like hiding the code blocks while syntax highlighter is working)
+        It's also results in better UX. You won't see the code in black and white while the syntax highlighting code is doing it's job.
+        Websites use tricks like hiding the code blocks while syntax highlighter is working, to avoid this glitch.
     </p>
     <p>
         So how does syntax highlighting work in this page? It uses <a href="https://prismjs.com/">prism.js</a>. But isn't
@@ -79,18 +79,17 @@
   document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     el<span class="token punctuation">.</span>textContent <span class="token operator">=</span> el<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  window<span class="token punctuation">.</span>Prism <span class="token operator">=</span> <span class="token punctuation">{</span>manual<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token keyword">await</span> <span class="token function">evalScript</span><span class="token punctuation">(</span><span class="token string">"/static/js/constexpr/third_party/prism.js"</span><span class="token punctuation">)</span>
-  <span class="token keyword">let</span> did_highlight <span class="token operator">=</span> <span class="token boolean">false</span>
-  <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog[class]'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>
-    <span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      did_highlight <span class="token operator">=</span> <span class="token boolean">true</span>
-      Prism<span class="token punctuation">.</span><span class="token function">highlightElement</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>did_highlight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> els <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog[class]'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>els<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span>Prism <span class="token operator">=</span> <span class="token punctuation">{</span>manual<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> <span class="token function">evalScript</span><span class="token punctuation">(</span><span class="token string">"/static/js/constexpr/third_party/prism.js"</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>els<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>
+      <span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Prism<span class="token punctuation">.</span><span class="token function">highlightElement</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span>
     document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>
-      <span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;link rel="stylesheet" href="/static/css/prism.css"&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></prog>
