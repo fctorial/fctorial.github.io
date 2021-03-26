@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Constexpr.js API Documentation</title></head><body><nav><a href="/">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><title>Constexpr.js API Documentation</title><link rel="stylesheet" href="/static/css/prism.css"></head><body><nav><a href="/">
               HOME
           </a><a href="/projects.html">
               PROJECTS
@@ -19,7 +19,7 @@
             </p>
         </li>
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span></prog>
+            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
             <p>
                 Call this method if you want the compiler to skip this page. The page will be killed shortly after.
             </p>
@@ -46,6 +46,13 @@
             </p>
             <p>
                 You can use this method to mark certain paths as <progi>constexpr</progi>, so that they aren't copied.
+            </p>
+        </li>
+        <li>
+            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
+            <p>
+                Queue a message to be printed on the compiler stdout. The message is prefixed with the generator path
+                before printing.
             </p>
         </li>
     </ul>

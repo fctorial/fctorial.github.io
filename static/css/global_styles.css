@@ -82,7 +82,8 @@ nav {
 }
 
 nav a {
-    text-decoration: none;
+    color: inherit !important;
+    text-decoration: none !important;
     padding: 0.5em 1em;
     background: #c7c5c5;
     min-width: 10em;
@@ -173,7 +174,7 @@ prog, formula {
 }
 
 prog:not([class]) {
-    background: #cccaef;
+    background: #dddbff;
 }
 
 prog * {
@@ -222,8 +223,8 @@ blockquote {
     font-size: 0.8em;
     border-radius: 10em;
     background: #bcbcec;
-    text-decoration: none;
-    color: black !important;
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 .tag_element:hover {
@@ -240,4 +241,15 @@ blockquote {
     object-fit: cover;
     filter: brightness(20%);
     transition: opacity 500ms;
+}
+
+a {
+    color: #f200ff;
+    text-decoration: none;
+}
+a:visited {
+    color: #7d04a8;
+}
+a:hover {
+    text-decoration: underline;
 }
