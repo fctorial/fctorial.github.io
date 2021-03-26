@@ -7,40 +7,30 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
-      <title>All Intellij Idea CE Logos</title>
-      <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+      <title>Entry Points in constexpr.js</title>
+      <link>https://fctorial.github.io/posts/constexprjs_entry_points.html</link>
       
-      <category>intellij</category>
+      <category>constexpr.js</category>
+      <category>web</category>
+      <category>essay</category>
   </item>
   <item>
-      <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
-      <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+      <title>User Interface as an API for Humans</title>
+      <link>https://fctorial.github.io/posts/ui_api.html</link>
       
-      <category>intellij</category>
+      <category>ui</category>
+      <category>essay</category>
   </item>
   <item>
-      <title>Zero Cost Abstractions in Web Development</title>
-      <link>https://fctorial.github.io/posts/constexpr.js.html</link>
+      <title>Constexpr.js API Documentation</title>
+      <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
       
       <category>constexpr.js</category>
       <category>web</category>
   </item>
   <item>
-      <title>Runtime/Compile time code separation with constexpr.js</title>
-      <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
-      
-      <category>constexpr.js</category>
-      <category>web</category>
-  </item>
-  <item>
-      <title>Zircon Standalone</title>
-      <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
-      
-      <category>zircon_standalone</category>
-  </item>
-  <item>
-      <title>Generator pages in constexpr.js</title>
-      <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
+      <title>Syntax Highlighting in a Webpage Without Javascript</title>
+      <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -54,25 +44,43 @@
       <category>essay</category>
   </item>
   <item>
-      <title>Syntax Highlighting in a Webpage Without Javascript</title>
-      <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
+      <title>Generator pages in constexpr.js</title>
+      <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
       
       <category>constexpr.js</category>
       <category>web</category>
   </item>
   <item>
-      <title>Constexpr.js API Documentation</title>
-      <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
+      <title>Zircon Standalone</title>
+      <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
+      
+      <category>zircon_standalone</category>
+  </item>
+  <item>
+      <title>Runtime/Compile time code separation with constexpr.js</title>
+      <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
       
       <category>constexpr.js</category>
       <category>web</category>
   </item>
   <item>
-      <title>User Interface as an API for Humans</title>
-      <link>https://fctorial.github.io/posts/ui_api.html</link>
+      <title>Zero Cost Abstractions in Web Development</title>
+      <link>https://fctorial.github.io/posts/constexpr.js.html</link>
       
-      <category>ui</category>
-      <category>essay</category>
+      <category>constexpr.js</category>
+      <category>web</category>
+  </item>
+  <item>
+      <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
+      <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+      
+      <category>intellij</category>
+  </item>
+  <item>
+      <title>All Intellij Idea CE Logos</title>
+      <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+      
+      <category>intellij</category>
   </item>
 
 </channel>
