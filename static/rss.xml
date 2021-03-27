@@ -8,6 +8,7 @@
 
   <item>
       <title>Entry Points in constexpr.js</title>
+      <pubDate>27 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_entry_points.html</link>
       
       <category>constexpr.js</category>
@@ -16,6 +17,7 @@
   </item>
   <item>
       <title>User Interface as an API for Humans</title>
+      <pubDate>25 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/ui_api.html</link>
       
       <category>ui</category>
@@ -23,6 +25,7 @@
   </item>
   <item>
       <title>Constexpr.js API Documentation</title>
+      <pubDate>24 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
       
       <category>constexpr.js</category>
@@ -30,6 +33,7 @@
   </item>
   <item>
       <title>Syntax Highlighting in a Webpage Without Javascript</title>
+      <pubDate>23 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
       
       <category>constexpr.js</category>
@@ -37,6 +41,7 @@
   </item>
   <item>
       <title>Reading The Tea Leaves</title>
+      <pubDate>22 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/youtube_python_bug.html</link>
       
       <category>web</category>
@@ -45,6 +50,7 @@
   </item>
   <item>
       <title>Generator pages in constexpr.js</title>
+      <pubDate>21 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
       
       <category>constexpr.js</category>
@@ -52,12 +58,14 @@
   </item>
   <item>
       <title>Zircon Standalone</title>
+      <pubDate>20 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
       
       <category>zircon_standalone</category>
   </item>
   <item>
       <title>Runtime/Compile time code separation with constexpr.js</title>
+      <pubDate>19 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
       
       <category>constexpr.js</category>
@@ -65,6 +73,7 @@
   </item>
   <item>
       <title>Zero Cost Abstractions in Web Development</title>
+      <pubDate>18 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexpr.js.html</link>
       
       <category>constexpr.js</category>
@@ -72,12 +81,14 @@
   </item>
   <item>
       <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
+      <pubDate>17 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/modifying_idea.html</link>
       
       <category>intellij</category>
   </item>
   <item>
       <title>All Intellij Idea CE Logos</title>
+      <pubDate>16 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/intellij_logos.html</link>
       
       <category>intellij</category>
