@@ -57,13 +57,22 @@ table {
 /********************************************************************************/
 
 body {
+    width: 100vw;
     overflow-y: scroll;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body > div {
     width: 50%;
     min-width: 600px;
-    margin: auto;
+}
+
+#body_wrapper {
     background: #e7e3e3;
     padding-top: 1em;
-    font-family: sans-serif;
 }
 
 noscript {
@@ -100,21 +109,22 @@ article {
     padding: 2em;
 }
 
-header {
+#main_title {
     width: 100%;
     text-align: center;
+    margin-top: 1em;
 }
 
-h3 {
+h1 {
     font-size: 2em;
 }
 
-h4 {
+h2 {
     font-size: 1.5em;
     color: #655ff5;
 }
 
-h3, h4 {
+h1, h2 {
     line-height: 1em;
     font-weight: bold;
     word-break: break-word;
@@ -125,13 +135,18 @@ em {
 }
 
 @media (max-width: 800px) {
-    body {
+    body > div {
         width: 100%;
-        font-size: 1.2em;
+        min-width: 0;
+        font-size: 1em;
+    }
+
+    #body_wrapper {
         padding-top: 0;
     }
 
     nav {
+        width: 100%;
         flex-direction: column;
         align-items: center;
         grid-gap: 0;
@@ -141,22 +156,14 @@ em {
         width: 100%;
     }
 
-    header > * {
+    #main_title > * {
         margin-top: 0.5em;
-    }
-
-    #main_title {
-        order: 1;
     }
 }
 
 @media (min-width: 800px) {
-    :root {
-        padding: 1em;
-    }
-
     body {
-        box-shadow: 0 0 50px #222222;
+        padding: 1em;
     }
 }
 
@@ -219,7 +226,8 @@ blockquote {
     text-align: center;
     cursor: pointer;
     min-width: 8em;
-    padding: 0.2em 1em;
+    line-height: 1rem;
+    padding: 0.3em 1em;
     font-size: 0.8em;
     border-radius: 10em;
     background: #bcbcec;

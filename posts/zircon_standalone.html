@@ -1,12 +1,24 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><title>Zircon Standalone</title><link rel="stylesheet" href="/static/css/prism.css"></head><body><nav><a href="/">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Zircon Standalone</title></head><body>
+<img class="bg" id="main_bg" src="/static/img/fuchsia.svg" alt="">
+
+
+
+
+
+
+
+
+
+
+
+<div id="body_wrapper"><header><nav><a href="/">
               HOME
           </a><a href="/projects.html">
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav>
-<img class="bg" id="main_bg" src="/static/img/fuchsia.svg" alt=""><article>
-    <header><h3 id="main_title">Zircon Standalone</h3></header><ul class="tags_list"><li><a class="tag_element" href="/tags/zircon_standalone.html">zircon_standalone</a></li></ul><div style="width: 100%; height: 5px; margin: 1em 0 2em; border: solid black; border-width: 1px 0;"></div><p>
+          </a></nav><h1 id="main_title">Zircon Standalone</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/zircon_standalone.html">zircon_standalone</a></li></ul><div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div></header><article>
+    <p>
         <a href="https://github.com/fctorial/zircon_standalone">Zircon Standalone</a> is a framework
         for running programs on <a href="https://fuchsia.dev/fuchsia-src/concepts/kernel">the zircon kernel</a>.
         Zircon is the core platform that powers Fuchsia, the upcoming operating system by google.
@@ -18,7 +30,7 @@
         on. Zircon standalone is like a bare bone fuchsia product containing just the kernel and a framework for compiling
         userspace programs, along with some utility libraries.
     </p>
-    <h4>Why?</h4>
+    <h2>Why?</h2>
     <p>
         Main advantages is build time. The smallest fuchsia product is "bringup" and it's 10-20 times bigger than the kernel.
         Building it takes around 30 minutes on a 4 core machine. Zircon Standalone might provice a more pleasant experience
@@ -36,7 +48,7 @@
         system calls. For fuchsia project, zircon is a means to an end, the end being the complete operating system. Zircon
         standalone focuses on zircon as an end in itself.
     </p>
-    <h4>Setup</h4>
+    <h2>Setup</h2>
     <ol>
         <li>
             Clone the <a href="https://github.com/fctorial/zircon_standalone">repository</a>.
@@ -67,7 +79,7 @@
             <prog class=" language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> ./build/run_x64.sh</prog>
         </li>
     </ol>
-    <h4>Dependencies on Fuchsia project</h4>
+    <h2>Dependencies on Fuchsia project</h2>
     <ul>
         <li>
             The init process code depends on zircon headers in
@@ -84,7 +96,7 @@
             There's a makefile target for that.
         </li>
     </ul>
-    <h4>Building on ARM host</h4>
+    <h2>Building on ARM host</h2>
     <p>
         I don't have an ARM workstation. PRs are welcome for adding support for ARM host. (Preferably as an environment
         variable <progi>HOST_IS_ARM</progi>)
@@ -96,16 +108,4 @@
         <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
         <a title="rss" href="/static/rss.xml" class="svg-icon rss"></a>
     </div>
-<a class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/">Join the discussion here</a></footer>
-
-
-
-
-
-
-
-
-
-
-
-</body></html>
+<a class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/">Join the discussion here</a></footer></div></body></html>
