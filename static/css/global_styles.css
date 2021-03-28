@@ -138,7 +138,7 @@ em {
     body > div {
         width: 100%;
         min-width: 0;
-        font-size: 1em;
+        font-size: 0.8em;
     }
 
     #body_wrapper {
