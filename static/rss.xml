@@ -7,9 +7,23 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Holi Special</title>
+      <pubDate>28 Mar 2021</pubDate>
+      <link>https://fctorial.github.io/posts/dynamic_colored_border.html</link>
+      <description>How to add animated colored borders to an element on your website.</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/mexe2n/holi_special/</comments>
+      
+      <category>ui</category>
+      <category>constexpr.js</category>
+      <category>web</category>
+      <category>css</category>
+  </item>
+  <item>
       <title>Entry Points in constexpr.js</title>
       <pubDate>27 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_entry_points.html</link>
+      <description>How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -19,6 +33,8 @@
       <title>User Interface as an API for Humans</title>
       <pubDate>25 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/ui_api.html</link>
+      <description>A case study of windows 8, linux desktop environments, and some tips on how to build good user interfaces</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fsz/user_interface_as_an_api_for_humans/</comments>
       
       <category>ui</category>
       <category>essay</category>
@@ -27,6 +43,8 @@
       <title>Constexpr.js API Documentation</title>
       <pubDate>24 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
+      <description>Description of API hooks provided by constexpr.js to the compiler code</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fp2/constexprjs_api_documentation/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -35,6 +53,8 @@
       <title>Syntax Highlighting in a Webpage Without Javascript</title>
       <pubDate>23 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
+      <description>This guide describes how you can use constexpr.js to highlight code in your website without using javascript</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fl7/syntax_highlighting_in_a_webpage_without/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -43,6 +63,8 @@
       <title>Reading The Tea Leaves</title>
       <pubDate>22 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/youtube_python_bug.html</link>
+      <description>Description of a rare bug in youtube website, and a possible cause of that bug</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fg2/reading_the_tea_leaves/</comments>
       
       <category>web</category>
       <category>python</category>
@@ -52,6 +74,8 @@
       <title>Generator pages in constexpr.js</title>
       <pubDate>21 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_generator_pages.html</link>
+      <description>A guide about generator pages in constexpr.js, a static site generator which uses javascript for generating HTML</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5fcr/generator_pages_in_constexprjs/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -60,6 +84,8 @@
       <title>Zircon Standalone</title>
       <pubDate>20 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
+      <description>A framework for writing programs for zircon, the kernel of upcoming fuchsia operating system</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/</comments>
       
       <category>zircon_standalone</category>
   </item>
@@ -67,6 +93,8 @@
       <title>Runtime/Compile time code separation with constexpr.js</title>
       <pubDate>19 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
+      <description>Some tips for organizing code when using constexpr.js, a static site generator which uses javascript for generating HTML</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5f4s/runtimecompile_time_code_separation_with/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -75,6 +103,8 @@
       <title>Zero Cost Abstractions in Web Development</title>
       <pubDate>18 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexpr.js.html</link>
+      <description>An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/</comments>
       
       <category>constexpr.js</category>
       <category>web</category>
@@ -83,6 +113,8 @@
       <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
       <pubDate>17 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+      <description>A guide about modifying the behavior of intellij idea without writing a plugin or compiling the ide from source</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5ev6/modifying_intellij_idea_without_using_sdk_or/</comments>
       
       <category>intellij</category>
   </item>
@@ -90,6 +122,8 @@
       <title>All Intellij Idea CE Logos</title>
       <pubDate>16 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+      <description>A list of all Intellij Idea Community Edition splash screens that were pushed to intellij-community github repository</description>
+      <comments>https://fctorial.github.io/posts/intellij_logos.html</comments>
       
       <category>intellij</category>
   </item>
