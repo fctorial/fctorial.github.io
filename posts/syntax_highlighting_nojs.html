@@ -20,7 +20,7 @@
     <p>
         Syntax highlighted code in a webpage, like this one, is just some html with some styling added to it. For example, this html:
     </p>
-    <prog class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span>
+    <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token keyword<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>function<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token function<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>calculate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token punctuation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>(<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
@@ -53,7 +53,7 @@
     <p>
         Generates this output when rendered:
     </p>
-    <prog class=" language-js"><span class="token keyword">function</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <prog class=" language-js" role="figure"><span class="token keyword">function</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">else</span> <span class="token punctuation">{</span>
@@ -85,8 +85,13 @@
         use <em>any</em> javascript library/framework. This code is all you need to integrate prism.js
         in your website.
     </p>
-    <prog id="syntax_highlight_code" class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <prog id="syntax_highlight_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    el<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'role'</span><span class="token punctuation">,</span> <span class="token string">'figure'</span><span class="token punctuation">)</span>
+    el<span class="token punctuation">.</span>textContent <span class="token operator">=</span> el<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'progi'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    el<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'role'</span><span class="token punctuation">,</span> <span class="token string">'figure'</span><span class="token punctuation">)</span>
     el<span class="token punctuation">.</span>textContent <span class="token operator">=</span> el<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token keyword">const</span> els <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog[class]'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -104,10 +109,10 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></prog>
     <p>
-        As you can see, it's regular javascript code that uses the prism.js api. Using <progi>katex</progi> for rendering
+        As you can see, it's regular javascript code that uses the prism.js api. Using <progi role="figure">katex</progi> for rendering
         math formulae is just as simple:
     </p>
-    <prog id="render_latex_code" class=" language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <prog id="render_latex_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> blocks <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'formula'</span><span class="token punctuation">)</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>blocks<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">await</span> <span class="token function">evalScript</span><span class="token punctuation">(</span><span class="token string">"/static/packages/katex/katex.js"</span><span class="token punctuation">)</span>

@@ -23,12 +23,12 @@
         the list of posts in your blog.
     </p>
     <p>
-        The main entry point for this feature is the <progi>window._ConstexprJS_.addPaths</progi> function. By default,
-        constexpr.js compiler creates one output page for each html file in the input directory (unless <progi>abort</progi>
-        is called). <progi>addPaths</progi> takes an array as input and adds an additional page for each entry in that array. The
-        array elements must be objects with two keys, <progi>generator</progi> and <progi>output</progi>:
+        The main entry point for this feature is the <progi role="figure">window._ConstexprJS_.addPaths</progi> function. By default,
+        constexpr.js compiler creates one output page for each html file in the input directory (unless <progi role="figure">abort</progi>
+        is called). <progi role="figure">addPaths</progi> takes an array as input and adds an additional page for each entry in that array. The
+        array elements must be objects with two keys, <progi role="figure">generator</progi> and <progi role="figure">output</progi>:
     </p>
-    <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addPaths</span><span class="token punctuation">(</span>
+    <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addPaths</span><span class="token punctuation">(</span>
     <span class="token punctuation">[</span>
         <span class="token punctuation">{</span>
             generator<span class="token operator">:</span> <span class="token string">"/posts/generator_from_date.html?2021-jan"</span><span class="token punctuation">,</span>
@@ -41,8 +41,8 @@
     <span class="token punctuation">]</span>
 <span class="token punctuation">)</span></prog>
     <p>
-        This tells the compiler to render the page <progi>/posts/generator_from_date.html?2021-jan</progi> and save it's
-        result to <progi>/posts/2021-jan.html</progi>.
+        This tells the compiler to render the page <progi role="figure">/posts/generator_from_date.html?2021-jan</progi> and save it's
+        result to <progi role="figure">/posts/2021-jan.html</progi>.
     </p>
     <p>
         Think of the generator page as a function that takes input in url parameters/hash and produces the intended
@@ -54,8 +54,8 @@
 
     <h2>Links to generated pages</h2>
     <p>
-        The compiler also maps all the links to generator page (<progi>/posts/generator_from_date.html?2021-jan</progi>)
-        to the correct output HTMLs (<progi>/posts/2021-jan.html</progi>). This ensures that the original and the final
+        The compiler also maps all the links to generator page (<progi role="figure">/posts/generator_from_date.html?2021-jan</progi>)
+        to the correct output HTMLs (<progi role="figure">/posts/2021-jan.html</progi>). This ensures that the original and the final
         website look and work exactly the same when you use this feature.
     </p>
     <blockquote>

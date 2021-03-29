@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><title>Modifying Intellij Idea without using SDK or compiling it from source</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Modifying Intellij Idea without using SDK or compiling it from source</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -28,17 +28,17 @@
     </p>
     <ol>
         <li>Execute
-            <prog class=" language-bash">jar tf path/to/idea/lib/resources.jar <span class="token operator">|</span> <span class="token function">less</span></prog>
+            <prog class=" language-bash" role="figure">jar tf path/to/idea/lib/resources.jar <span class="token operator">|</span> <span class="token function">less</span></prog>
             and search for "logo.png". Note the file name.</li>
         <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/intellij_logos.html">here</a>)</li>
         <li>Open the idea launcher script (idea.sh) in an editor</li>
-        <li>Find this line and append your directory to the front: <prog class=" language-bash"><span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$IDE_HOME</span>/lib/bootstrap.jar"</span></prog></li>
+        <li>Find this line and append your directory to the front: <prog class=" language-bash" role="figure"><span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$IDE_HOME</span>/lib/bootstrap.jar"</span></prog></li>
         <li>Chown this directory to root:root and chmod to 755</li>
     </ol>
     <p>
         Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well. Extract
-        a classfile from <progi>lib</progi>, decompile it (https://jdec.app), modify it, compile it
-        (<progi>javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it a subdirectory corresponding
+        a classfile from <progi role="figure">lib</progi>, decompile it (https://jdec.app), modify it, compile it
+        (<progi role="figure">javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it a subdirectory corresponding
         to the package. Intellij is a huge project (multi million lines of code),
         so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
         change the ide in any way you want, however the changes won't be portable.

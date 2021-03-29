@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><title>Constexpr.js API Documentation</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Constexpr.js API Documentation</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -29,20 +29,20 @@
     </p>
     <ul id="api_methods">
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span></prog>
+            <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span></prog>
             <p>
                 The rendering code should call this method once it has finished rendering. The page will be snapshotted and killed
                 shortly after.
             </p>
         </li>
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
+            <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
             <p>
                 Call this method if you want the compiler to skip this page. The page will be killed shortly after.
             </p>
         </li>
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addPaths</span><span class="token punctuation">(</span>paths<span class="token punctuation">)</span></prog>
+            <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addPaths</span><span class="token punctuation">(</span>paths<span class="token punctuation">)</span></prog>
             <p>
                 Use this method to tell the compiler that it needs to generate additional HTML files in the output directory.
                 This method doesn't affect the current page in any way. See <a href="/posts/constexprjs_generator_pages.html">this page</a>
@@ -50,23 +50,23 @@
             </p>
         </li>
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addExclusions</span><span class="token punctuation">(</span>paths<span class="token punctuation">)</span></prog>
+            <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">addExclusions</span><span class="token punctuation">(</span>paths<span class="token punctuation">)</span></prog>
             <p>
                 The argument is a list of strings. Use this method to tell the compiler to remove given paths from the
                 dependency list of the current file.
             </p>
             <p>
                 The compiler uses HTTP requests made by the page to figure out the dependencies that it needs to copy. Also,
-                the compiler automatically removes <progi>constexpr</progi> script paths from the dependency list of an HTML file.
-                But if the rendering code uses XHR to fetch a script and then <progi>eval</progi>s it, the compiler will think
+                the compiler automatically removes <progi role="figure">constexpr</progi> script paths from the dependency list of an HTML file.
+                But if the rendering code uses XHR to fetch a script and then <progi role="figure">eval</progi>s it, the compiler will think
                 that the fetched script is a regular resource and copy it over as well.
             </p>
             <p>
-                You can use this method to mark certain paths as <progi>constexpr</progi>, so that they aren't copied.
+                You can use this method to mark certain paths as <progi role="figure">constexpr</progi>, so that they aren't copied.
             </p>
         </li>
         <li>
-            <prog class=" language-js">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
+            <prog class=" language-js" role="figure">window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span></prog>
             <p>
                 Print a message on the compiler stdout. The message is prefixed with the generator path before printing.
             </p>

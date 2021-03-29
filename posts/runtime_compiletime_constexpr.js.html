@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><title>Runtime/Compile time code separation with constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><link rel="stylesheet" href="/static/css/prism.css"><title>Runtime/Compile time code separation with constexpr.js</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -19,7 +19,7 @@
           </a></nav><h1 id="main_title">Runtime/Compile time code separation with constexpr.js</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li></ul><div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div></header><article>
     <p>
         <a href="/posts/constexpr.js.html">constexpr.js</a> allows you to execute some of the javascript in your website
-        before it is deployed. I'll refer to such javascript as <progi>constepxr</progi>. You can use constexpr code for
+        before it is deployed. I'll refer to such javascript as <progi role="figure">constepxr</progi>. You can use constexpr code for
         programmatically generating HTML in your website.
     </p>
     <p>
@@ -35,14 +35,14 @@
         Javascript execution in your website should be split into two phases. The compilation phase and the runtime
         phase. The first thing you should do when building a site is to write the compilation phase code. In the above
         example, it's the code that generates the images list, the background and the navbar. All the compilation phase
-        code should be marked as <progi>constexpr</progi>.
+        code should be marked as <progi role="figure">constexpr</progi>.
     </p>
     <p>
         There should be a regular, non-constexpr method in your website which will bootstrap the runtime code execution.
-        (<progi>initHover</progi> in the above example). Once the compilation phase code has finished rendering the page,
+        (<progi role="figure">initHover</progi> in the above example). Once the compilation phase code has finished rendering the page,
         it should append a script tag to the DOM that calls this method:
     </p>
-        <prog class=" language-javascript"><span class="token operator">...</span>
+        <prog class=" language-javascript" role="figure"><span class="token operator">...</span>
 <span class="token keyword">const</span> init <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
 init<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'initHover()'</span>
 document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
@@ -52,7 +52,7 @@ document<span class="token punctuation">.</span><span class="token function">que
     </p>
     <ol>
         <li>
-            Newly added script tags are executed immediately by the browser. So the<progi>initHover</progi> method will
+            Newly added script tags are executed immediately by the browser. So the<progi role="figure">initHover</progi> method will
             be called after the HTML structure has been generated in the original website.
         </li>
         <li>
@@ -60,7 +60,7 @@ document<span class="token punctuation">.</span><span class="token function">que
             three things:
             <ol>
                 <li>Generated HTML</li>
-                <li>Runtime bootstrap function <progi>initHover</progi></li>
+                <li>Runtime bootstrap function <progi role="figure">initHover</progi></li>
                 <li>A script tag that calls the bootstrap function</li>
             </ol>
         </li>
