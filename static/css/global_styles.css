@@ -91,8 +91,8 @@ nav {
 }
 
 nav a {
-    color: inherit !important;
     text-decoration: none !important;
+    color: inherit !important;
     padding: 0.5em 1em;
     background: #c7c5c5;
     min-width: 10em;
@@ -293,8 +293,9 @@ footer .discussion:hover {
 }
 
 .svg-icon {
-    width: 40px;
-    height: 40px;
+    width: 3em;
+    height: 3em;
+    background-size: contain;
     display: inline-block;
 }
 
