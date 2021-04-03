@@ -124,7 +124,23 @@ h2 {
     color: #655ff5;
 }
 
-h1, h2 {
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
     line-height: 1em;
     font-weight: bold;
     word-break: break-word;
