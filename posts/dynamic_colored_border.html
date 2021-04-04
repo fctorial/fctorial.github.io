@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><meta name="description" content="How to add animated colored borders to an element on your website."><meta name="keywords" content="ui,constexpr.js,web,css"><title>Holi Special</title></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><meta name="description" content="How to add animated colored borders to an element on your website."><meta name="keywords" content="ui,constexpr.js,web,css"><title>Holi Special</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -225,14 +225,14 @@
     <span class="token comment">// ...</span>
     <span class="token keyword">const</span> base_page_render <span class="token operator">=</span> <span class="token function">site_global_rendering</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token comment">// ...</span>
-    <span class="token keyword">await</span> base_page_render
+    <span class="token keyword control-flow">await</span> base_page_render
     <span class="token comment">// ...</span>
   <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token function">render_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> window<span class="token punctuation">.</span>_ConstexprJS_<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span><span class="token punctuation">.</span><span class="token method function property-access">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
     <p>
         <progi role="figure">site_global_rendering()</progi> generates all the markup that is common among all the pages on this site
@@ -253,11 +253,11 @@
         <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> base_page_render <span class="token operator">=</span> <span class="token function">site_global_rendering</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">await</span> base_page_render
+    <span class="token keyword control-flow">await</span> base_page_render
 
     <span class="token keyword">const</span> hw <span class="token operator">=</span> <span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;div id="holi_wrapper"&gt;&lt;/div&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-    hw<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>body_wrapper<span class="token punctuation">)</span>
-    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>hw<span class="token punctuation">)</span>
+    hw<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>body_wrapper<span class="token punctuation">)</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>hw<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
     </p>

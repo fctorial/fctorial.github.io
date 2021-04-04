@@ -42,11 +42,11 @@
         (<progi role="figure">initHover</progi> in the above example). Once the compilation phase code has finished rendering the page,
         it should append a script tag to the DOM that calls this method:
     </p>
-        <prog class=" language-javascript" role="figure"><span class="token operator">...</span>
-<span class="token keyword">const</span> init <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
-init<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'initHover()'</span>
-document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
-<span class="token operator">...</span></prog>
+        <prog class=" language-javascript" role="figure"><span class="token spread operator">...</span>
+<span class="token keyword">const</span> init <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
+init<span class="token punctuation">.</span><span class="token property-access">innerText</span> <span class="token operator">=</span> <span class="token string">'initHover()'</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
+<span class="token spread operator">...</span></prog>
     <p>
         This will accomplish two things:
     </p>
