@@ -145,8 +145,7 @@
 
     <h2>Navigating the test result tree</h2>
     <p>
-        You can use the function <progi role="figure">get-failed</progi> function to filter tests with
-        <progi role="figure">(not= status :OK)</progi>:
+        You can use the <progi role="figure">get-failed</progi> function to filter tests with <progi role="figure">(not= status :OK)</progi>:
     </p>
     <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token operator">:a</span> <span class="token punctuation">{</span><span class="token operator">:c</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
