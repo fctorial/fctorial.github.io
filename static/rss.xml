@@ -7,6 +7,16 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>An REPL oriented testing framework for clojure and clojurescript</title>
+      <pubDate>4 Apr 2021</pubDate>
+      <link>https://fctorial.github.io/posts/tst.html</link>
+      <description>A guide for "tst", an REPL oriented testing framework for clojure and clojurescript</description>
+      <comments>https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/</comments>
+      
+      <category>clojure</category>
+      <category>testing</category>
+  </item>
+  <item>
       <title>A Home Remedy For Impacted Wisdom Teeth</title>
       <pubDate>30 Mar 2021</pubDate>
       <link>https://fctorial.github.io/posts/wisdom_teeth.html</link>
