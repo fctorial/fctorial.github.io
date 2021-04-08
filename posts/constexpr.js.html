@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><link rel="stylesheet" href="/static/packages/katex/katex.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><meta name="description" content="An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,web"><title>Zero Cost Abstractions in Web Development</title></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/global_styles.css"><meta name="description" content="An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,web"><title>Zero Cost Abstractions in Web Development</title><link rel="stylesheet" href="/static/packages/katex/katex.css"></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt=""><img class="bg" id="thanos_bg" src="/static/img/stones.jpg" alt="" style="opacity: 0; filter: none; object-position: left center;">
 
 
@@ -103,7 +103,8 @@
         constexpr.
     </p>
     <p>
-        The generated pages don't have to be completely static. For example, try hovering over the images on <a href="/posts/intellij_logos.html">this</a> page.
+        The generated pages don't have to be completely static. For example, disqus integration in
+        <a href="/raw/constexprjs_now/posts/up_and_running.html">this</a> page.
     </p>
     <blockquote>
         The new website will look exactly like the original website after the pages finish rendering. This is one of the
@@ -184,12 +185,6 @@ optional arguments:
         This page also uses prism.js for syntax highlighting, katex for math formulae and asciinema-player for the
         <progi role="figure">./build.sh</progi> output, along with jquery and papaparse. A total of 2.5mb of javascript that you don't
         have to download or execute because it's constexpr.<br>
-    </p>
-
-    <h2>Ecosystem</h2>
-    <p>
-        Since you can use <em>any</em> javascript library, no strings attached, you could argue that the ecosystem for
-        constexpr.js is bigger than that of other static site generators like Jekyll, Hugo etc.
     </p>
 
     <h2>Performance</h2>
