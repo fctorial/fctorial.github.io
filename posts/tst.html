@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide for " tst",="" an="" repl="" oriented="" testing="" framework="" for="" clojure="" and="" clojurescript"=""><meta name="keywords" content="clojure,testing"><title>An REPL oriented testing framework for clojure and clojurescript</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide for " tst",="" an="" repl="" oriented="" testing="" framework="" for="" clojure="" and="" clojurescript"=""><meta name="keywords" content="clojure,testing"><title>An REPL oriented testing framework for clojure and clojurescript</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -36,14 +36,14 @@
         The first argument to the macro is the name of the test suite (<progi role="figure">:test</progi> in this case). How the rest
         of the arguments are interpreted depends on whether the test suite is a leaf node or an inner node.
     </p>
-    <h4>Leaf Nodes</h4>
+    <h3>Leaf Nodes</h3>
     <p>
         Leaf nodes must have a vector after the name. The above example is a leaf node. As you can see, it looks a lot
         like a function call. You are supposed to put all the testing logic inside these "functions". It must return a
         clojure map with <progi role="figure">:result</progi> as a key. It can throw an error too.<br>
         The empty vector isn't there just for marking the leaf nodes. I'll describe how to use them a little later.
     </p>
-    <h4>Inner Nodes</h4>
+    <h3>Inner Nodes</h3>
     <p>
         Inner nodes must contain nested <progi role="figure">testing</progi> macro calls following the name:
     </p>
@@ -168,17 +168,17 @@
 </article><footer>
     <div class="links">
         <div class="social">
-            <div class="footer-title">Contacts:</div>
-            <a title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
-            <a title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
-            <a title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
-        </div>
-        <div class="share social">
             <div class="footer-title">Share this page:</div>
-            <a title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=An REPL oriented testing framework for clojure and clojurescript&amp;url=https://fctorial.github.io/posts/tst.html"></a>
-            <a title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://fctorial.github.io/posts/tst.html"></a>
-            <a title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=An REPL oriented testing framework for clojure and clojurescript&amp;url=https://fctorial.github.io/posts/tst.html"></a>
+            <a rel="noopener" title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=An REPL oriented testing framework for clojure and clojurescript&amp;url=https://fctorial.github.io/posts/tst.html"></a>
+            <a rel="noopener" title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://fctorial.github.io/posts/tst.html"></a>
+            <a rel="noopener" title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=An REPL oriented testing framework for clojure and clojurescript&amp;url=https://fctorial.github.io/posts/tst.html"></a>
+        </div>
+        <div class="social">
+            <div class="footer-title">Contacts:</div>
+            <a rel="noopener" title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
+            <a rel="noopener" title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
+            <a rel="noopener" title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
         </div>
     </div>
 
-<a class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/">Join the discussion here</a></footer></div></body></html>
+<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/">Join the discussion here</a></footer></div></body></html>
