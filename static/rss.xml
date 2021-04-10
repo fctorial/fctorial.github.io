@@ -11,7 +11,7 @@
       <pubDate>10 Apr 2021</pubDate>
       <link>https://fctorial.github.io/posts/rust_difficult.html</link>
       <description>In this article I try to describe why rust and its ownership system are so difficult to learn</description>
-      
+      <comments>https://www.reddit.com/r/fctorial/comments/mo5jk7/rust_is_a_low_level_language/</comments>
       
       <category>rust</category>
       <category>essay</category>
