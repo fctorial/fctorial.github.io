@@ -7,6 +7,16 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Rust is a low level language</title>
+      <pubDate>10 Apr 2021</pubDate>
+      <link>https://fctorial.github.io/posts/rust_difficult.html</link>
+      <description>In this article I try to describe why rust and its ownership system are so difficult to learn</description>
+      
+      
+      <category>rust</category>
+      <category>essay</category>
+  </item>
+  <item>
       <title>An REPL oriented testing framework for clojure and clojurescript</title>
       <pubDate>4 Apr 2021</pubDate>
       <link>https://fctorial.github.io/posts/tst.html</link>
