@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"><meta name="description" content="An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,web"><title>Zero Cost Abstractions in Web Development</title><link rel="stylesheet" href="/static/packages/katex/katex.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,web"><title>Zero Cost Abstractions in Web Development</title><link rel="stylesheet" href="/static/packages/katex/katex.css"></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt=""><img class="bg" id="thanos_bg" src="/static/img/stones.jpg" alt="" style="opacity: 0; filter: none; object-position: left center;">
 
 
@@ -122,11 +122,12 @@
         You will have to divide the javascript being used in your page into two groups. Runtime javascript and
         compile time javascript, and annotate all compile time script tags with
         <progi role="figure">constexpr</progi> attribute:
+    </p>
         <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
 <span class="token spread operator">...</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/generate_page.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
-        <br>
+    <p>
         Runtime code must not depend on the compile time code, since that code will be stripped out before writing the
         output file. See <a href="/posts/runtime_compiletime_constexpr.js.html">this guide</a> for code organization
         tips for constexpr.js.
@@ -139,14 +140,12 @@
 
     <p>
         The compiler can be installed from npm:
-        <prog class=" language-bash" role="figure"><span class="token function">npm</span> i -g constexpr.js@latest</prog>
-        <br>
     </p>
-
+    <prog class=" language-bash" role="figure"><span class="token function">npm</span> i -g constexpr.js@latest</prog>
     <p>
         Command line usage:
-        <prog role="figure">$ ./constexpr.js --help
-usage: constexpr.js [-h] [-v] --input INPUT_DIRECTORY --output OUTPUT_DIRECTORY [--entry ENTRYPOINTS] [--exclusion EXCLUSIONS] [--jobcount JOBCOUNT] [--jobtimeout JOBTIMEOUT] [--depfile DEPFILE] [--noheadless] [--verbose]
+        <prog role="figure">$ constexpr.js --help
+usage: constexpr.js [-h] [-v] --input INPUT_DIRECTORY --output OUTPUT_DIRECTORY [--entry ENTRYPOINTS] [--skip-resources] [--jobcount JOBCOUNT] [--jobtimeout JOBTIMEOUT] [--depfile DEPFILE] [--noheadless] [--verbose]
 
 Zero cost abstractions for web development
 
@@ -157,9 +156,8 @@ optional arguments:
                         Input website root directory
   --output OUTPUT_DIRECTORY
                         Output directory
-  --entry ENTRYPOINTS   Add an HTML file to be used as entry point, paths must be relative to the website root, can be used multiple times
-  --exclusion EXCLUSIONS
-                        Add a path to exclusions list, HTML files inside it aren't processed and resources inside it aren't copied, can be used multiple times
+  --entry ENTRYPOINTS   Add an HTML file to be used as entry point, paths must be relative to the website root, can be used multiple times, must provide at least one entry point
+  --skip-resources      Do not copy resources to the output directory
   --jobcount JOBCOUNT   Number of compilation jobs to run in parallel
   --jobtimeout JOBTIMEOUT
                         Time in milliseconds for which the compiler will wait for the pages to render
@@ -175,8 +173,7 @@ optional arguments:
     </div>
     <p>
         The tool also copies resources (<progi role="figure">css</progi>, <progi role="figure">images</progi> etcetra)
-        that are requestead by pages being rendered. HTML files/resources inside paths given in <progi role="figure">--exclusions</progi>
-        are not processed/copied.
+        that are requestead by pages being rendered (unless <progi role="figure">--skip-resources</progi> option is specified.
     </p>
 
     <h2>Plugins</h2>
@@ -240,12 +237,14 @@ optional arguments:
 
             <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
 <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">abort</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">addPaths</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">addExclusions</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">compile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">abort</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">addPath</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">addExclusion</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">addDependency</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">log</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
         </li>
@@ -256,33 +255,25 @@ optional arguments:
         </li>
         <li>
             You should keep all list data separate from the html in <a href="https://github.com/fctorial/fctorial.github.io.src/tree/master/collections">json files</a>.
-            <progi role="figure">constexpr</progi> code in the html will fetch these json files and render the page using them.
-            The directory containing this data should be excluded using <progi role="figure">--exclusions</progi> flag, so that the
-            resources inside it aren't copied over.
+            <progi role="figure">constexpr</progi> javascript should fetch these json files and render the page using them.
             <br>
             You can even use a real database if you're thinking about scalability. constexpr.js gives you a turing
             complete templating language, so you can do anything you want.
         </li>
         <li>
-            You can include dev utilites like
-            <a href="https://github.com/fctorial/fctorial.github.io.src/blob/627558ff17fae0b5b5dbdb93510f08e8e7065aad/static/js/constexpr/renderer.js#L123">this</a>
-            in the original website. It reloads the page whenever it's focused. It won't be in the output since it's
-            used as constexpr.
-        </li>
-        <li>
             This whole website is rendered using javascript and constexpr.js. The html files contain only the page
             specific stuff. (article text and page specific styling).
-            All of the styling and theming is done by constexpr code. The whole website contains 57 lines of javascript
+            All of the styling and theming is done by constexpr code. The whole website contains 44 lines of javascript
             (for disqus and some optional dynamic functionality):
             <prog role="figure">===============================================================================
-Language            Files        Lines         Code     Comments       Blanks
+ Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
-HTML                   34         2729         2329            0          400
-|- CSS                 22          255          234            0           21
-|- JavaScript           4           61           57            0            4
-(Total)                           3045         2620            0          425
+ HTML                   35         2821         2409            0          412
+ |- CSS                 21          251          230            0           21
+ |- JavaScript           3           46           44            0            2
+ (Total)                           3118         2683            0          435
 ===============================================================================
-Total                  34         3045         2620            0          425
+ Total                  35         3118         2683            0          435
 ===============================================================================</prog>
             The original sources for this website can be found <a href="https://github.com/fctorial/fctorial.github.io.src">here</a>.
         </li>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide about modifying the behavior of intellij idea without writing a plugin or compiling the ide from source"><meta name="keywords" content="intellij"><title>Modifying Intellij Idea without using SDK or compiling it from source</title></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide about modifying the behavior of intellij idea without writing a plugin or compiling the ide from source"><meta name="keywords" content="intellij"><title>Modifying Intellij Idea without using SDK or compiling it from source</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -30,18 +30,18 @@
         <li>Execute
             <prog class=" language-bash" role="figure">jar tf path/to/idea/lib/resources.jar <span class="token operator">|</span> <span class="token function">less</span></prog>
             and search for "logo.png". Note the file name.</li>
-        <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/posts/intellij_logos.html">here</a>)</li>
+        <li>Copy the png image you want in some directory with the name you found above. (you can pick one from <a href="/intellij_logos.html">here</a>)</li>
         <li>Open the idea launcher script (idea.sh) in an editor</li>
-        <li>Append your patch directory to the front of classpath: <prog class=" language-bash" role="figure"><span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$PATCH_DIRECTORY</span>:<span class="token variable">$IDE_HOME</span>/lib/bootstrap.jar"</span></prog></li>
+        <li>Find this line and append your directory to the front: <prog class=" language-bash" role="figure"><span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$IDE_HOME</span>/lib/bootstrap.jar"</span></prog></li>
         <li>Chown this directory to root:root and chmod to 755</li>
     </ol>
     <p>
         Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well. Extract
-        a classfile from <progi role="figure">lib</progi>, <a href="https://jdec.app">decompile it</a>, modify it, compile it
-        (<progi role="figure">javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it in a subdirectory corresponding
+        a classfile from <progi role="figure">lib</progi>, decompile it (https://jdec.app), modify it, compile it
+        (<progi role="figure">javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it a subdirectory corresponding
         to the package. Intellij is a huge project (multi million lines of code),
         so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
-        change intellij in any way you want, however, the changes won't be portable.
+        change the ide in any way you want, however the changes won't be portable.
     </p>
     <p>
         <a href="https://gist.github.com/fctorial/362c75a53b6163dde11c27bb345ac098">This</a> is an example classfile that adds a boot message.

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"><meta name="description" content="How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,web,essay"><title>Entry Points in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js,essay"><title>Entry Points in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -16,34 +16,160 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Entry Points in constexpr.js</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li><li><a class="tag_element" href="/tags/essay.html">essay</a></li></ul><div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div></header><article>
+          </a></nav><h1 id="main_title">Entry Points in constexpr.js</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/essay.html">essay</a></li></ul><div style="width: calc(100% - 2em); height: 5px; margin: 1em auto 0; border: solid black; border-width: 1px 0;"></div></header><article>
     <p>
-        <progi role="figure">constexpr.js</progi> executable requires two mandatory arguments, <progi role="figure">--input</progi> and
-        <progi role="figure">--output</progi>. By default (when <progi role="figure">--entry</progi> option isn't used), it searches the input
-        directory for HTML files, processes them, and writes the result to corresponding paths in the output directory.
-    </p>
-    <p>
-        <progi role="figure">--entry</progi> option can be used multiple times in an invocation. It's values must be paths of HTML
+        <progi role="figure">constexpr.js</progi> executable requires three mandatory arguments, <progi role="figure">--input</progi>,
+        <progi role="figure">--output</progi>, and <progi role="figure">--entry</progi>.
+        <progi role="figure">--entry</progi> option can be used multiple times in an invocation. Its values must be paths of HTML
         files relative to the input root:
     </p>
     <prog class=" language-bash" role="figure">constexpr.js --input<span class="token operator">=</span>. --output<span class="token operator">=</span><span class="token punctuation">..</span>/deployment --entry /index.html --entry /subsite/index.html</prog>
     <p>
-        When constexpr.js is invoked with the <progi role="figure">--entry</progi> option, the compiler doesn't search the input
-        directory for HTML files. It only compiles the paths specified using this option, and it's left upto those pages
-        to define the structure of the rest of the website using <progi role="figure">addPaths</progi> <a href="/posts/constexprjs_api_docs.html">api hook</a>.
+        This is the sequence of operations constexpr.js compiler performs when it is invoked:
     </p>
+    <ol>
+        <li>
+            Render all the pages. For each page:
+            <ol>
+                <li>Figure out its dependencies (css, images, etc).</li>
+                <li>Snapshot the DOM state when the page finishes rendering.</li>
+                <li>Kill the page.</li>
+            </ol>
+        </li>
+        <li>
+            Write the DOM snapshots of each page as HTML files.
+        </li>
+        <li>
+            Combine the dependency lists of all the pages into a single list.
+        </li>
+        <li>
+            Copy dependencies to the output directory.
+        </li>
+    </ol>
+    <p>
+        The compiler maintains a list of pages that it needs to process. In the beginning, this list contains only the
+        pages specified as entry points (<progi role="figure">/index.html</progi> and <progi role="figure">/subsite/index.html</progi>
+        in the above example). The constexpr code inside these entry points is supposed to use the <progi role="figure">addPaths</progi>
+        api hook to notify the compiler about other pages that it needs to render. The argument of this function must be
+        an object with two keys, <progi role="figure">generator</progi> and <progi role="figure">output</progi>:
+    </p>
+    <prog class=" language-js" role="figure"><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span><span class="token punctuation">.</span><span class="token method function property-access">addPath</span><span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
+        generator<span class="token operator">:</span> <span class="token string">"/about.html"</span><span class="token punctuation">,</span>
+        output<span class="token operator">:</span> <span class="token string">"/about.html"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span><span class="token punctuation">.</span><span class="token method function property-access">addPath</span><span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
+        generator<span class="token operator">:</span> <span class="token string">"/posts/generator_from_date.html?2021-jan"</span><span class="token punctuation">,</span>
+        output<span class="token operator">:</span> <span class="token string">"/posts/2021-jan.html"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span></prog>
+    <p>
+        These invocations will append <progi role="figure">/about.html</progi> and
+        <progi role="figure">/posts/generator_from_date.html?2021-jan</progi> to the list of pages that the compiler needs to process.
+        The compilation results of these pages will be written to <progi role="figure">/about.html</progi> and
+        <progi role="figure">/posts/2021-jan.html</progi> respectively.
+    </p>
+
+    <p>
+        Think of the generator page as a function that takes input in url query string/hash and produces the intended
+        page as output. Try to make this a pure function.
+    </p>
+
+    <p>
+        Every page except the entry points will have a parent page which queued it for compilation. The queueing
+        relationship between the pages will form a tree:
+    </p>
+
+    <div class="graphviz"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="407pt" height="188pt" viewBox="0.00 0.00 407.15 188.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 403.1487,-184 403.1487,4 -4,4"></polygon>
+
+<g id="node1" class="node">
+<title>a</title>
+<polygon fill="none" stroke="#000000" points="200.1296,-180 119.794,-180 119.794,-144 200.1296,-144 200.1296,-180"></polygon>
+<text text-anchor="middle" x="159.9618" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">/index.html</text>
+</g>
+
+<g id="node2" class="node">
+<title>b</title>
+<polygon fill="none" stroke="#000000" points="153.1296,-108 72.794,-108 72.794,-72 153.1296,-72 153.1296,-108"></polygon>
+<text text-anchor="middle" x="112.9618" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">/about.html</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="#000000" d="M148.1017,-143.8314C142.7989,-135.7079 136.4381,-125.9637 130.5945,-117.0118"></path>
+<polygon fill="#000000" stroke="#000000" points="133.3787,-114.8739 124.9816,-108.4133 127.517,-118.7003 133.3787,-114.8739"></polygon>
+</g>
+
+<g id="node3" class="node">
+<title>c</title>
+<polygon fill="none" stroke="#000000" points="242.575,-108 171.3486,-108 171.3486,-72 242.575,-72 242.575,-108"></polygon>
+<text text-anchor="middle" x="206.9618" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">/tags.html</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>a--c</title>
+<path fill="none" stroke="#000000" d="M171.8219,-143.8314C177.1247,-135.7079 183.4855,-125.9637 189.3291,-117.0118"></path>
+<polygon fill="#000000" stroke="#000000" points="192.4066,-118.7003 194.942,-108.4133 186.5449,-114.8739 192.4066,-118.7003"></polygon>
+</g>
+
+<g id="node4" class="node">
+<title>d</title>
+<polygon fill="none" stroke="#000000" points="129.8854,-36 .0382,-36 .0382,0 129.8854,0 129.8854,-36"></polygon>
+<text text-anchor="middle" x="64.9618" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">/tags/javascript.html</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>c--d</title>
+<path fill="none" stroke="#000000" d="M171.1292,-71.8314C152.5461,-62.4089 129.6629,-50.8062 109.9053,-40.7883"></path>
+<polygon fill="#000000" stroke="#000000" points="111.2848,-37.5635 100.7829,-36.1628 108.1191,-43.8069 111.2848,-37.5635"></polygon>
+</g>
+
+<g id="node5" class="node">
+<title>e</title>
+<polygon fill="none" stroke="#000000" points="266.5004,-36 147.4232,-36 147.4232,0 266.5004,0 266.5004,-36"></polygon>
+<text text-anchor="middle" x="206.9618" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">/tags/webdev.html</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>c--e</title>
+<path fill="none" stroke="#000000" d="M206.9618,-71.8314C206.9618,-64.131 206.9618,-54.9743 206.9618,-46.4166"></path>
+<polygon fill="#000000" stroke="#000000" points="210.4619,-46.4132 206.9618,-36.4133 203.4619,-46.4133 210.4619,-46.4132"></polygon>
+</g>
+
+<g id="node6" class="node">
+<title>f</title>
+<polygon fill="none" stroke="#000000" points="399.3362,-36 284.5874,-36 284.5874,0 399.3362,0 399.3362,-36"></polygon>
+<text text-anchor="middle" x="341.9618" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">/tags/clojure.html</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>c--f</title>
+<path fill="none" stroke="#000000" d="M241.028,-71.8314C258.6151,-62.4516 280.2534,-50.9112 298.9786,-40.9244"></path>
+<polygon fill="#000000" stroke="#000000" points="300.73,-43.957 307.9065,-36.1628 297.4359,-37.7805 300.73,-43.957"></polygon>
+</g>
+</g>
+</svg></div>
+
     <p>
         You can also use this option to compile only a small number of pages in your website, which might be useful if
         you have a huge website.
     </p>
 
+    <h2>Links to generated pages</h2>
+    <p>
+        The compiler also maps all the links to generator page (<progi role="figure">/posts/generator_from_date.html?2021-jan</progi>)
+        to the correct output HTMLs (<progi role="figure">/posts/2021-jan.html</progi>). This ensures that the original and the final
+        website look and work exactly the same when you use this feature.
+    </p>
+
     <h2>Corollary</h2>
     <p>
         The motivation behind this feature is to decouple the structure of your output website from the filesystem.
-        By default, the structure of the website is implicitly determined from the filesystem. This feature allows you
-        to offload that decision to constexpr code that you wrote.
-    </p>
-    <p>
         The design philosophy of constexpr.js goes against that of traditional static site generators which
         have a ton of implicit behavior, and plugins add more implicit behavior on top of that. In order to build a
         website with these SSGs, you need to understand a lot of such implicit behavior, which doesn't have any use
