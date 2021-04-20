@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="A simple command line utility for working with clipboard on linux"><meta name="keywords" content="utilities"><title>Accessing xorg clipboard from command line</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
+
+
+
+
+
+
+
+
+
+
+<div id="body_wrapper" class="first_body_wrapper"><header><nav><a href="/">
+              HOME
+          </a><a href="/projects.html">
+              PROJECTS
+          </a><a href="/tags.html">
+              TAGS
+          </a></nav><h1 id="main_title">Accessing xorg clipboard from command line</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/utilities.html">utilities</a></li></ul></header><article>
+    <p>
+        In this article I'm going to share a simple bash function that makes dealing with system clipboard easier:
+    </p>
+    <prog class=" language-bash" role="figure"><span class="token function-name function">clb</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token assign-left variable">TMP</span><span class="token operator">=</span><span class="token string">'/tmp/.clb.tmp'</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$1</span> <span class="token operator">=</span> <span class="token string">'e'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+                clb <span class="token operator">&gt;</span> <span class="token variable">$TMP</span>
+                <span class="token variable">$EDITOR</span> <span class="token variable">$TMP</span>
+                <span class="token function">cat</span> <span class="token variable">$TMP</span> <span class="token operator">|</span> clb
+                <span class="token function">rm</span> <span class="token variable">$TMP</span>
+        <span class="token keyword">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -t <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+                xsel -b -o
+        <span class="token keyword">else</span>
+                xsel -b -i
+        <span class="token keyword">fi</span>
+<span class="token punctuation">}</span></prog>
+    <p>
+        It requires <progi role="figure">xsel</progi> to be installed on your system.
+    </p>
+    <h2>Usage</h2>
+
+    <ul>
+        <li>
+            <p>
+                It automatically determines whether it's supposed to output the current clipboard or overwrite the clipboard
+                based on its location in the pipeline:
+            </p>
+            <prog class=" language-bash" role="figure">clb <span class="token operator">|</span> rg <span class="token string">'^//'</span> <span class="token comment"># Search clipboard for comments</span>
+
+<span class="token function">cat</span> program.cc <span class="token operator">|</span> rg <span class="token string">'^//'</span> <span class="token operator">|</span> clb <span class="token comment"># Copy all comments in a file</span></prog>
+        </li>
+        <li>
+            <p>
+                It will open the clipboard content in your <progi role="figure">EDITOR</progi> if invoked as <progi role="figure">clb e</progi>.
+                Clipboard will be updated when you exit the editor.
+            </p>
+        </li>
+    </ul>
+</article><footer>
+    <div class="links">
+        <div class="social">
+            <div class="footer-title">Share this page:</div>
+            <a rel="noopener" title="twitter" class="svg-icon twitter" target="_blank" href="https://twitter.com/share?text=Accessing xorg clipboard from command line&amp;url=https://fctorial.github.io/posts/clipboard_cli.html"></a>
+            <a rel="noopener" title="facebook" class="svg-icon facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://fctorial.github.io/posts/clipboard_cli.html"></a>
+            <a rel="noopener" title="reddit" class="svg-icon reddit" target="_blank" href="https://www.reddit.com/submit?title=Accessing xorg clipboard from command line&amp;url=https://fctorial.github.io/posts/clipboard_cli.html"></a>
+            <a rel="noopener" title="hacker news" class="svg-icon hn" target="_blank" href="https://news.ycombinator.com/submitlink?t=Accessing xorg clipboard from command line&amp;u=https://fctorial.github.io/posts/clipboard_cli.html"></a>
+        </div>
+        <div class="social">
+            <div class="footer-title">Contacts:</div>
+            <a rel="noopener" title="github" href="https://github.com/fctorial" class="svg-icon github"></a>
+            <a rel="noopener" title="twitter" href="https://twitter.com/fctorial1" class="svg-icon twitter"></a>
+            <a rel="noopener" title="email" href="mailto:fctorial@gmail.com" class="svg-icon email"></a>
+        </div>
+    </div>
+
+</footer></div></body></html>

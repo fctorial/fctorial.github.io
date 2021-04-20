@@ -7,6 +7,15 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Accessing xorg clipboard from command line</title>
+      <pubDate>20 Apr 2021</pubDate>
+      <link>https://fctorial.github.io/posts/clipboard_cli.html</link>
+      <description>A simple command line utility for working with clipboard on linux</description>
+      
+      
+      <category>utilities</category>
+  </item>
+  <item>
       <title>Dependency resolution in constexpr.js</title>
       <pubDate>13 Apr 2021</pubDate>
       <link>https://fctorial.github.io/posts/constexprjs_dependency_resolution.html</link>
