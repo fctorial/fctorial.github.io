@@ -7,6 +7,15 @@
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
+      <title>Constexpr.js hello world</title>
+      <pubDate>24 Apr 2021</pubDate>
+      <link>https://fctorial.github.io/posts/constexprjs_hello_world.html</link>
+      <description>In this article, I build a </description>
+      
+      
+      <category>constexpr.js</category>
+  </item>
+  <item>
       <title>Accessing xorg clipboard from command line</title>
       <pubDate>20 Apr 2021</pubDate>
       <link>https://fctorial.github.io/posts/clipboard_cli.html</link>
@@ -74,7 +83,6 @@
       <comments>https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/</comments>
       
       <category>constexpr.js</category>
-      <category>essay</category>
   </item>
   <item>
       <title>User Interface as an API for Humans</title>
