@@ -16,13 +16,20 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Runtime/Compile time code separation with constexpr.js</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Runtime/Compile time code separation with constexpr.js</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li></ul></header><article role="main">
+    
+    
+    
+    
+        
+    
+    
+    
+<section><p>
         <a href="/posts/constexpr.js.html">constexpr.js</a> allows you to execute some of the javascript in your website
         before it is deployed. I'll refer to such javascript as <progi role="figure">constepxr</progi>. You can use constexpr code for
         programmatically generating HTML in your website.
-    </p>
-    <p>
+    </p><p>
         The constexpr code is stripped out by the compiler, so the runtime code must not depend on it. Hence, there has to
         be a clear boundary between the runtime code and compile time code. In this article I'll share some tips for
         managing code when building a site with constexpr.js. I'll be using <a href="/posts/intellij_logos.html">this</a>
@@ -30,27 +37,22 @@
         statically with constexpr.js but the background is being manipulated at runtime with javascript.<br>
         <a href="https://github.com/fctorial/fctorial.github.io.src/blob/master/posts/intellij_logos.html">Original page source</a><br>
         <a href="https://github.com/fctorial/fctorial.github.io/blob/master/posts/intellij_logos.html">Compiler output</a>
-    </p>
-    <p>
+    </p><p>
         Javascript execution in your website should be split into two phases. The compilation phase and the runtime
         phase. The first thing you should do when building a site is to write the compilation phase code. In the above
         example, it's the code that generates the images list, the background and the navbar. All the compilation phase
         code should be marked as <progi role="figure">constexpr</progi>.
-    </p>
-    <p>
+    </p><p>
         There should be a regular, non-constexpr method in your website which will bootstrap the runtime code execution.
         (<progi role="figure">initHover</progi> in the above example). Once the compilation phase code has finished rendering the page,
         it should append a script tag to the DOM that calls this method:
-    </p>
-        <prog class=" language-javascript" role="figure"><span class="token spread operator">...</span>
+    </p><prog class=" language-javascript" role="figure"><span class="token spread operator">...</span>
 <span class="token keyword">const</span> init <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span>
 init<span class="token punctuation">.</span><span class="token property-access">innerText</span> <span class="token operator">=</span> <span class="token string">'initHover()'</span>
 <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span>
-<span class="token spread operator">...</span></prog>
-    <p>
+<span class="token spread operator">...</span></prog><p>
         This will accomplish two things:
-    </p>
-    <ol>
+    </p><ol>
         <li>
             Newly added script tags are executed immediately by the browser. So the<progi role="figure">initHover</progi> method will
             be called after the HTML structure has been generated in the original website.
@@ -64,11 +66,9 @@ init<span class="token punctuation">.</span><span class="token property-access">
                 <li>A script tag that calls the bootstrap function</li>
             </ol>
         </li>
-    </ol>
-    <blockquote>
+    </ol><blockquote>
         See pages tagged with <a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a> for more guides.
-    </blockquote>
-</article><footer>
+    </blockquote></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

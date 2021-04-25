@@ -21,12 +21,15 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Modifying Intellij Idea without using SDK or compiling it from source</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/intellij.html">intellij</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Modifying Intellij Idea without using SDK or compiling it from source</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/intellij.html">intellij</a></li></ul></header><article role="main">
+    
+    
+    
+    
+<section><p>
         You can modify the behavior of Intellij IDEA using a mechanism similar to videogame patching. This guide shows how
         to change the startup splash screen.
-    </p>
-    <ol>
+    </p><ol>
         <li>Execute
             <prog class=" language-bash" role="figure">jar tf path/to/idea/lib/resources.jar <span class="token operator">|</span> <span class="token function">less</span></prog>
             and search for "logo.png". Note the file name.</li>
@@ -34,20 +37,17 @@
         <li>Open the idea launcher script (idea.sh) in an editor</li>
         <li>Append this directory to the front of classpath: <prog class=" language-bash" role="figure"><span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$PATCH_DIRECTORY</span>:<span class="token variable">$IDE_HOME</span>/lib/bootstrap.jar"</span></prog></li>
         <li>Chown this directory to root:root and chmod to 755</li>
-    </ol>
-    <p>
+    </ol><p>
         Now the chosen splash screen will be shown on startup. This method can be used to override classfiles as well. Extract
         a classfile from <progi role="figure">lib</progi> directory, <a href="https://jdec.app">decompile it</a>, modify it, compile it
         (<progi role="figure">javac -cp "path/to/idea/lib/*" Main.java</progi>) and place it in a subdirectory corresponding
         to the package. Intellij is a huge project (multi million lines of code),
         so compiling it is a no go if you don't have a beefy machine. This is a patching mechanism, not a plugin, so you can
         change the ide in any way you want, however the changes won't be portable.
-    </p>
-    <p>
+    </p><p>
         <a href="https://gist.github.com/fctorial/362c75a53b6163dde11c27bb345ac098">This</a> is an example classfile that adds a boot message.
         (It might not work for you if your ide version is different)
-    </p>
-</article><footer>
+    </p></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

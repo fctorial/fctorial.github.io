@@ -16,22 +16,29 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Rust is a low level language</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/rust.html">rust</a></li><li><a class="tag_element" href="/tags/essay.html">essay</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Rust is a low level language</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/rust.html">rust</a></li><li><a class="tag_element" href="/tags/essay.html">essay</a></li></ul></header><article role="main">
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+<section><p>
         Rust is considered by many to be one of the hardest mainstream programming languages. Many beginners struggle a
         lot when learning rust, despite the excellent tooling, decent standard library, and painless package
         management. That means there is something inherently difficult/tricky about the core language itself that
         newcomers find very difficult to come to terms with.
-    </p>
-    <p>
+    </p><p>
         Rust is a huge language and it's increasing in size everyday. It has a lot of complicated features like
         generics, metaprogramming, build scripts etcetra. In this article, I'm going to focus only on the borrow
         checker and the type system, since these are the first core features of the language to trip up newcomers.
-    </p>
-    <p>
+    </p><p>
         Take a look at this function:
-    </p>
-    <prog class=" language-rust" role="figure"><span class="token keyword">fn</span> <span class="token function-definition function">process</span><span class="token punctuation">(</span>file<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span> processor<span class="token punctuation">:</span> <span class="token keyword">fn</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token keyword">bool</span><span class="token punctuation">,</span> finalizer<span class="token punctuation">:</span> <span class="token keyword">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    </p><prog class=" language-rust" role="figure"><span class="token keyword">fn</span> <span class="token function-definition function">process</span><span class="token punctuation">(</span>file<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span> processor<span class="token punctuation">:</span> <span class="token keyword">fn</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token keyword">bool</span><span class="token punctuation">,</span> finalizer<span class="token punctuation">:</span> <span class="token keyword">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token class-name">Path</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token keyword">let</span> <span class="token class-name">Ok</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">read_to_string</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
         <span class="token punctuation">.</span><span class="token function">and_then</span><span class="token punctuation">(</span><span class="token closure-params"><span class="token closure-punctuation punctuation">|</span>content<span class="token closure-punctuation punctuation">|</span></span> <span class="token punctuation">{</span>
@@ -47,13 +54,10 @@
         <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">finalizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></prog>
-    <p>
+<span class="token punctuation">}</span></prog><p>
         It reads a file, splits it into lines, skips the first line, processes the rest of the lines, and calls a
         finalizer if all the processing operations succeeded. These are some of the noteworthy things about this code:
-    </p>
-
-    <ul>
+    </p><ul>
         <li>
             <p>
                 There are exactly three type annotations in this function, all in the function signature. The
@@ -69,22 +73,18 @@
                 automagically from the point of view of the programmer.</em> This is RAII on steroids.
             </p>
         </li>
-    </ul>
-    <p>
+    </ul><p>
         Because of the borrow checker and the type deduction system, programming in rust feels eerily similar to
         a high level language like javascript. You could say that rust lang comes with a compile time garbage collector.
         In fact, you can go very far by programming in rust like it's nodejs, which is what I suspect beginners do. But,
         sooner or later, you'll hit the limits of the borrow checker. And when that happens, you'll have to start
         thinking about resources and lifetimes. I believe this is the number one gotcha that trips up rust noobs.
-    </p>
-    <p>
+    </p><p>
         So newcomers find rust difficult <em>because</em> of how marvellous and helpful the borrow checker is. It tricks
         newcomers into thinking that rust is a high level language.
-    </p>
-    <blockquote>
+    </p><blockquote>
         Rust is not a high level language. It is a low level language without a garbage collector.
-    </blockquote>
-</article><footer>
+    </blockquote></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

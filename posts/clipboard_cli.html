@@ -16,11 +16,16 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Accessing xorg clipboard from command line</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/utilities.html">utilities</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Accessing xorg clipboard from command line</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/utilities.html">utilities</a></li></ul></header><article role="main">
+    
+    
+    
+    
+
+    
+<section><p>
         In this article I'm going to share a simple bash function that makes dealing with system clipboard easier:
-    </p>
-    <prog class=" language-bash" role="figure"><span class="token function-name function">clb</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    </p><prog class=" language-bash" role="figure"><span class="token function-name function">clb</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token assign-left variable">TMP</span><span class="token operator">=</span><span class="token string">'/tmp/.clb.tmp'</span>
         <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$1</span> <span class="token operator">=</span> <span class="token string">'e'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
         <span class="token keyword">then</span>
@@ -34,13 +39,9 @@
         <span class="token keyword">else</span>
                 xsel -b -i
         <span class="token keyword">fi</span>
-<span class="token punctuation">}</span></prog>
-    <p>
+<span class="token punctuation">}</span></prog><p>
         It requires <progi role="figure">xsel</progi> to be installed on your system.
-    </p>
-    <h2>Usage</h2>
-
-    <ul>
+    </p></section><section><h2>Usage</h2><ul>
         <li>
             <p>
                 It automatically determines whether it's supposed to output the current clipboard or overwrite the clipboard
@@ -56,8 +57,7 @@
                 Clipboard will be updated when you exit the editor.
             </p>
         </li>
-    </ul>
-</article><footer>
+    </ul></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="How to add animated colored borders to an element on your website."><meta name="keywords" content="ui,constexpr.js,web,css"><title>Holi Special</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="How to add animated colored borders to an element on your website."><meta name="keywords" content="ui,constexpr.js,web,css"><title>Holi Special</title></head><body>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -101,21 +101,50 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Holi Special</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/ui.html">ui</a></li><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li><li><a class="tag_element" href="/tags/css.html">css</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Holi Special</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/ui.html">ui</a></li><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li><li><a class="tag_element" href="/tags/css.html">css</a></li></ul></header><article role="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+<section><p>
         In today's article, I'm going to describe how to add dynamic colored borders to an element in your webpage,
         similar to the one you see on this page. After that, I'll talk about some details specific to the implementation
         in this page, which is statically generated with <a href="/posts/constexpr.js.html">constexpr.js</a>.
-    </p>
-    <p>
+    </p><p>
         Let's say this is the element you want to add a dynamic border to:
-    </p>
-    <div class="diagram">
+    </p><div class="diagram">
         <div class="main_content">
             Content
         </div>
-    </div>
-    <prog class=" language-css" role="figure"><span class="token selector">.main_content</span> <span class="token punctuation">{</span>
+    </div><prog class=" language-css" role="figure"><span class="token selector">.main_content</span> <span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> lightgrey<span class="token punctuation">;</span>
     <span class="token property">width</span><span class="token punctuation">:</span> 10em<span class="token punctuation">;</span>
     <span class="token property">height</span><span class="token punctuation">:</span> 10em<span class="token punctuation">;</span>
@@ -123,36 +152,28 @@
     <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
     <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
     <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></prog>
-    <div class="divider"></div>
-    <p>
+<span class="token punctuation">}</span></prog><div class="divider"></div><p>
         1. First thing your should do is wrap this element inside another div, and add a tiny amount of padding to the
         outer div. That padding will act as the border you see on this page.
-    </p>
-    <div class="diagram">
+    </p><div class="diagram">
         <div class="wstage1">
             <div class="main_content">
                 Content
             </div>
         </div>
-    </div>
-    <prog class=" language-css" role="figure"><span class="token selector">.wstage1</span> <span class="token punctuation">{</span>
+    </div><prog class=" language-css" role="figure"><span class="token selector">.wstage1</span> <span class="token punctuation">{</span>
     <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
     <span class="token property">padding</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
     <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></prog>
-    <div class="divider"></div>
-    <p>
+<span class="token punctuation">}</span></prog><div class="divider"></div><p>
         2. After that add some colors to the wrapper div. A linear-gradient should do the job:
-    </p>
-    <div class="diagram">
+    </p><div class="diagram">
         <div class="wstage1 wstage2">
             <div class="main_content">
                 Content
             </div>
         </div>
-    </div>
-    <prog class=" language-css" role="figure"><span class="token selector">.wstage2</span> <span class="token punctuation">{</span>
+    </div><prog class=" language-css" role="figure"><span class="token selector">.wstage2</span> <span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>
             45deg<span class="token punctuation">,</span>
             red<span class="token punctuation">,</span> blue<span class="token punctuation">,</span> green<span class="token punctuation">,</span>
@@ -162,19 +183,15 @@
             red<span class="token punctuation">,</span> blue<span class="token punctuation">,</span> green
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token property">background-size</span><span class="token punctuation">:</span> 300% 300%<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></prog>
-    <div class="divider"></div>
-    <p>
+<span class="token punctuation">}</span></prog><div class="divider"></div><p>
         3. Now we animate the background:
-    </p>
-    <div class="diagram">
+    </p><div class="diagram">
         <div class="wstage1 wstage2 wstage3">
             <div class="main_content">
                 Content
             </div>
         </div>
-    </div>
-    <prog class=" language-css" role="figure"><span class="token atrule"><span class="token rule">@keyframes</span> animatedgradient</span> <span class="token punctuation">{</span>
+    </div><prog class=" language-css" role="figure"><span class="token atrule"><span class="token rule">@keyframes</span> animatedgradient</span> <span class="token punctuation">{</span>
     <span class="token selector">0%</span> <span class="token punctuation">{</span>
         <span class="token property">background-position</span><span class="token punctuation">:</span> 0 50%<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -187,40 +204,28 @@
 <span class="token punctuation">}</span>
 <span class="token selector">.wstage3</span> <span class="token punctuation">{</span>
     <span class="token property">animation</span><span class="token punctuation">:</span> animatedgradient 8s linear alternate infinite<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></prog>
-
-    <p>
+<span class="token punctuation">}</span></prog><p>
         To be honest, this looks more like diwali material than holi material, but whatever.
-    </p>
-
-    <h2>Notes</h2>
-    <p>
+    </p></section><section><h2>Notes</h2><p>
         Another method of doing this is adding an <progi role="figure">::after</progi> element to the content, making it slightly
         bigger than the content element (<progi role="figure">width: calc(100% + 4px);</progi>), and animating the background on that pseudo
         element. This is a css only solution (doesn't require changing the markup, or writing javascript that changes the
         markup), but it has some cons:
-    </p>
-    <ol>
+    </p><ol>
         <li>It doesn't play well with <progi role="figure">overflow: hidden;</progi></li>
         <li>
             The <progi role="figure">::after</progi> pseudo-element extends outside of the content bounds, so it might interfere with
             the surrounding elements. So you can not use this method if your target element is right next to some other
             element.
         </li>
-    </ol>
-    <p>
+    </ol><p>
         The method described in this article doesn't have these disadvantages. And, with constexpr.js, you can use this
         method without changing the markup <em>or</em> runtime javascript.
-    </p>
-
-    <h2>The implementation in this website</h2>
-    <p>
+    </p></section><section><h2>The implementation in this website</h2><p>
         You can find the source of this page <a target="_blank" href="https://github.com/fctorial/fctorial.github.io.src/blob/5ecf18aff413b63c600690df680121344ec976c3/posts/dynamic_colored_border.html">here</a>.
-    </p>
-    <p>
+    </p><p>
         Every page on this site contains these two constexpr script tags:
-    </p>
-    <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    </p><prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// ...</span>
     <span class="token keyword">const</span> base_page_render <span class="token operator">=</span> <span class="token function">site_global_rendering</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -233,13 +238,11 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token function">render_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">_ConstexprJS_</span><span class="token punctuation">.</span><span class="token method function property-access">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
-    <p>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog><p>
         <progi role="figure">site_global_rendering()</progi> generates all the markup that is common among all the pages on this site
         (nav, header, footer, syntax highlighting etc). Individual pages can add code that depends on the markup
         generated by this method after the await call.
-    </p>
-    <p>
+    </p><p>
         The rendering code on this page waits for the site global rendering to finish, which generates the following
         markup:
         <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>body_wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -247,8 +250,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></prog>
-    </p>
-    <p>
+    </p><p>
         And adds another wrapper around it that does the holi decoration:
         <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">constexpr</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -260,12 +262,10 @@
     <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>hw<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></prog>
-    </p>
-    <p>
+    </p><p>
         Since all this code is constexpr, this wrapping is done at compile time, and you get a site which enjoys
         the best of both worlds.
-    </p>
-</article><footer>
+    </p></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

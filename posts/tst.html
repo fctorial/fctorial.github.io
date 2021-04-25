@@ -15,39 +15,69 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">An REPL oriented testing framework for clojure and clojurescript</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/clojure.html">clojure</a></li><li><a class="tag_element" href="/tags/testing.html">testing</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">An REPL oriented testing framework for clojure and clojurescript</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/clojure.html">clojure</a></li><li><a class="tag_element" href="/tags/testing.html">testing</a></li></ul></header><article role="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+<section><p>
         <a href="https://github.com/fctorial/tst">tst</a> is a testing library for clojure(script) that is designed to be
         used from the REPL. In this article, I'm going to describe how to use it.
-    </p>
-    <p>
+    </p><p>
         The base API consists of two entities, the macro <progi role="figure">testing</progi> and the function <progi role="figure">run-test</progi>.
-    </p>
-    <h2>Defining a test suite</h2>
-    <p>
+    </p></section><section><h2>Defining a test suite</h2><p>
         <progi role="figure">testing</progi> macro is used to define the test suite tree. The leaf nodes in this tree will contain the
         testing logic and the inner nodes will be used to group multiple test suites. An invocation of the
         <progi role="figure">testing</progi> macro returns a test suite as a value:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite1 <span class="token punctuation">(</span>testing <span class="token operator">:test</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite1 <span class="token punctuation">(</span>testing <span class="token operator">:test</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
                     <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:OK</span>
-                     <span class="token operator">:message</span> <span class="token string">"A simple test suite"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <p>
+                     <span class="token operator">:message</span> <span class="token string">"A simple test suite"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         The first argument to the macro is the name of the test suite (<progi role="figure">:test</progi> in this case). How the rest
         of the arguments are interpreted depends on whether the test suite is a leaf node or an inner node.
-    </p>
-    <h3>Leaf Nodes</h3>
-    <p>
+    </p><h3>Leaf Nodes</h3><p>
         Leaf nodes must have a vector after the name. The above example is a leaf node. As you can see, it looks a lot
         like a function call. You are supposed to put all the testing logic inside these "functions". It must return a
         clojure map with <progi role="figure">:result</progi> as a key. It can throw an error too.<br>
         The empty vector isn't there just for marking the leaf nodes. I'll describe how to use them a little later.
-    </p>
-    <h3>Inner Nodes</h3>
-    <p>
+    </p><h3>Inner Nodes</h3><p>
         Inner nodes must contain nested <progi role="figure">testing</progi> macro calls following the name:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite2 <span class="token punctuation">(</span>testing <span class="token operator">:a</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite2 <span class="token punctuation">(</span>testing <span class="token operator">:a</span>
                      <span class="token punctuation">(</span>testing <span class="token operator">:b</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
                               <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:OK</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
                      <span class="token punctuation">(</span>testing <span class="token operator">:c</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -56,30 +86,20 @@
                      <span class="token punctuation">(</span>testing <span class="token operator">:d</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
                               <span class="token punctuation">(</span><span class="token keyword">throw</span> <span class="token punctuation">(</span><span class="token keyword">new</span> Error<span class="token punctuation">)</span><span class="token punctuation">)</span>
                               <span class="token punctuation">{</span><span class="token operator">:result</span>  <span class="token operator">:OK</span>
-                               <span class="token operator">:message</span> <span class="token string">"ignored"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <h2>Manipulating test suites</h2>
-    <p>
+                               <span class="token operator">:message</span> <span class="token string">"ignored"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span></prog></section><section><h2>Manipulating test suites</h2><p>
         You can combine multiple test suites into a single suite using <progi role="figure">combine-tests</progi> function:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> combined <span class="token punctuation">(</span>combine-tests <span class="token punctuation">[</span>suite1 suite2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <p>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> combined <span class="token punctuation">(</span>combine-tests <span class="token punctuation">[</span>suite1 suite2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         A common pattern is to define parts of test suite in different modules and combining them into one big suite in
         the main testing module.
-    </p>
-    <p>
+    </p><p>
         You can also pull out parts of the test suite as if it were a regular clojure map (it is a regular clojure map):
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite3 <span class="token punctuation">(</span><span class="token keyword">get</span> combined <span class="token operator">:test</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">(</span><span class="token keyword">def</span> suite4 <span class="token punctuation">(</span>get-in combined <span class="token punctuation">[</span><span class="token operator">:a</span> <span class="token operator">:c</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <p>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite3 <span class="token punctuation">(</span><span class="token keyword">get</span> combined <span class="token operator">:test</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> suite4 <span class="token punctuation">(</span>get-in combined <span class="token punctuation">[</span><span class="token operator">:a</span> <span class="token operator">:c</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         This can be used to run a subset of the full test suite.
-    </p>
-    <h2>Running test suites</h2>
-    <p>
+    </p></section><section><h2>Running test suites</h2><p>
         <progi role="figure">run-test</progi> function can be used to execute a test suite. It returns a result tree whose structure
         matches that of the given test suite.
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token operator">:test</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:OK</span><span class="token punctuation">,</span>
         <span class="token operator">:message</span> <span class="token string">"A simple test suite"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
  <span class="token operator">:a</span> <span class="token punctuation">{</span><span class="token operator">:b</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:OK</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -89,13 +109,9 @@
          <span class="token operator">:exception</span> #error<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
 
 <span class="token punctuation">(</span>run-test <span class="token punctuation">(</span>get-in combined <span class="token punctuation">[</span><span class="token operator">:a</span> <span class="token operator">:c</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span></prog>
-
-    <h2>Test state</h2>
-    <p>
+<span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span></prog></section><section><h2>Test state</h2><p>
         Consider the following test unit:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>testing <span class="token operator">:suite</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>testing <span class="token operator">:suite</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
          <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span><span class="token number">a</span> <span class="token punctuation">(</span>get_a<span class="token punctuation">)</span>
                <span class="token number">b</span> <span class="token punctuation">(</span>get_b <span class="token number">a</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
            <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span>valid_value? <span class="token number">b</span><span class="token punctuation">)</span>
@@ -103,21 +119,16 @@
              <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span>
               <span class="token operator">:cause</span>  <span class="token string">"Invalid result"</span>
               <span class="token operator">:a</span>      <span class="token number">a</span>
-              <span class="token operator">:b</span>      <span class="token number">b</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <p>
+              <span class="token operator">:b</span>      <span class="token number">b</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         What if <progi role="figure">get-b</progi> throws an exception. You'll get the following result when you execute this test:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">{</span><span class="token operator">:result</span>    <span class="token operator">:EXCEPTION</span>
- <span class="token operator">:exception</span> #error<span class="token punctuation">}</span></prog>
-    <p>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">{</span><span class="token operator">:result</span>    <span class="token operator">:EXCEPTION</span>
+ <span class="token operator">:exception</span> #error<span class="token punctuation">}</span></prog><p>
         The exception info will contain the stack trace, but not the value of local variable <progi role="figure">a</progi> that
         caused <progi role="figure">get-b</progi> to throw an exception.
-    </p>
-    <p>
+    </p><p>
         You can resolve this dilemma by using state variables. The state variables for a test unit are declared in the
         argument vector of the "function" for that test unit:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>testing <span class="token operator">:suite</span> <span class="token punctuation">[</span>val_a<span class="token punctuation">]</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>testing <span class="token operator">:suite</span> <span class="token punctuation">[</span>val_a<span class="token punctuation">]</span>
          <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span><span class="token number">a</span> <span class="token punctuation">(</span>get_a<span class="token punctuation">)</span>
                _ <span class="token punctuation">(</span>reset! val_a <span class="token number">a</span><span class="token punctuation">)</span>
                <span class="token number">b</span> <span class="token punctuation">(</span>get_b <span class="token number">a</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -126,35 +137,25 @@
              <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span>
               <span class="token operator">:cause</span>  <span class="token string">"Invalid result"</span>
               <span class="token operator">:a</span>      <span class="token number">a</span>
-              <span class="token operator">:b</span>      <span class="token number">b</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog>
-    <p>
+              <span class="token operator">:b</span>      <span class="token number">b</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         The execution context of the test unit will have an atom for each state variable that is declared. You can store
         intermediate state of the test unit inside these atoms, and this state will be available in the test result:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">{</span><span class="token operator">:suite</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:EXCEPTION</span><span class="token punctuation">,</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">{</span><span class="token operator">:suite</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:EXCEPTION</span><span class="token punctuation">,</span>
          <span class="token operator">:exception</span> #error<span class="token punctuation">,</span>
-         <span class="token operator">:state</span> <span class="token punctuation">{</span>val_a <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog>
-
-    <h2>Navigating the test result tree</h2>
-    <p>
+         <span class="token operator">:state</span> <span class="token punctuation">{</span>val_a <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog></section><section><h2>Navigating the test result tree</h2><p>
         You can use the <progi role="figure">get-failed</progi> function to filter tests with <progi role="figure">(not= status :OK)</progi>:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token operator">:a</span> <span class="token punctuation">{</span><span class="token operator">:c</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
      <span class="token operator">:d</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:EXCEPTION</span><span class="token punctuation">,</span>
-         <span class="token operator">:exception</span> #error<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog>
-    <p>
+         <span class="token operator">:exception</span> #error<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog><p>
         You can use functions <progi role="figure">flatten-result</progi> and <progi role="figure">treefy-result</progi> if your need more granularity:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">-&gt;&gt;</span> <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">-&gt;&gt;</span> <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span>
      flatten-result
      <span class="token punctuation">(</span><span class="token keyword">filter</span> my-result-filter<span class="token punctuation">)</span>
-     treefy-result<span class="token punctuation">)</span></prog>
-    <p>
+     treefy-result<span class="token punctuation">)</span></prog><p>
         <progi role="figure">flatten-result</progi> turns a result tree into a sequence of results and <progi role="figure">treefy-result</progi>
         turns a sequence of results back into a tree:
-    </p>
-    <prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> failed <span class="token punctuation">(</span>flatten-result <span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> failed <span class="token punctuation">(</span>flatten-result <span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment">; number of failed results</span>
 <span class="token punctuation">(</span><span class="token keyword">count</span> failed<span class="token punctuation">)</span>
@@ -164,8 +165,7 @@
 
 <span class="token comment">; stats about test results</span>
 <span class="token punctuation">(</span>frequencies <span class="token punctuation">(</span><span class="token keyword">map</span> <span class="token operator">:result</span> <span class="token punctuation">(</span>flatten-result <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span><span class="token operator">:OK</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">:ERR</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">:EXCEPTION</span> <span class="token number">1</span><span class="token punctuation">}</span></prog>
-</article><footer>
+<span class="token punctuation">{</span><span class="token operator">:OK</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">:ERR</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">:EXCEPTION</span> <span class="token number">1</span><span class="token punctuation">}</span></prog></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>

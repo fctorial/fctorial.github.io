@@ -16,11 +16,24 @@
               PROJECTS
           </a><a href="/tags.html">
               TAGS
-          </a></nav><h1 id="main_title">Syntax Highlighting in a Webpage Without Javascript</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li></ul></header><article>
-    <p>
+          </a></nav><h1 id="main_title">Syntax Highlighting in a Webpage Without Javascript</h1><ul class="tags_list"><li><a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a></li><li><a class="tag_element" href="/tags/web.html">web</a></li></ul></header><article role="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<section><p>
         Syntax highlighted code in a webpage, like this one, is just some html with some styling added to it. For example, this html:
-    </p>
-    <prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span>
+    </p><prog class=" language-html" role="figure"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token keyword<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>function<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token function<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>calculate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token punctuation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>(<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
@@ -49,43 +62,34 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token punctuation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token punctuation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>token punctuation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">&gt;</span></span></prog>
-    <p>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">&gt;</span></span></prog><p>
         Generates this output when rendered:
-    </p>
-    <prog class=" language-js" role="figure"><span class="token keyword">function</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    </p><prog class=" language-js" role="figure"><span class="token keyword">function</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword control-flow">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
         <span class="token keyword control-flow">return</span> n <span class="token operator">*</span> <span class="token function">calculate</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></prog>
-    <p>
+<span class="token punctuation">}</span></prog><p>
         As you can see, it's just a bit of HTML and CSS. The clients shouldn't have to download and execute javascript to highlight
         code in a webpage. As a matter of fact, syntax highlighting on this page works without javascript. You can
         verify that by disabling javascript in your browser and reloading this page.
-    </p>
-    <p>
+    </p><p>
         It's also results in better UX. You won't see the code in black and white while the syntax highlighting code is doing it's job.
         Websites use tricks like hiding the code blocks while syntax highlighter is working, to avoid this glitch.
-    </p>
-    <p>
+    </p><p>
         So how does syntax highlighting work in this page? It uses <a href="https://prismjs.com/">prism.js</a>. But isn't
         that a javascript framework? How do I use prism.js in my website without javascript?
-    </p>
-    <h2><a href="/posts/constexpr.js.html">constexpr.js</a></h2>
-    <p>
+    </p></section><section><h2><a href="/posts/constexpr.js.html">constexpr.js</a></h2><p>
         It is a tool that allows you to execute some of the javascript in your webpage beforehand, so that your clients
         don't have to. It allows you to use any javascript library without any fear of bloat. You can use it like a
         full on static site generator, as I do for this website.
-    </p>
-    <p>
+    </p><p>
         When used as a static site generator, you use regular javascript to render the page, instead of an arguably less
         powerful, esoteric templating language that has no use outside of the given framework. As for plugins, you can
         use <em>any</em> javascript library/framework. This code is all you need to integrate prism.js
         in your website.
-    </p>
-    <prog id="syntax_highlight_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    </p><prog id="syntax_highlight_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">syntax_highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'prog, progi'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
     el<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">'role'</span><span class="token punctuation">,</span> <span class="token string">'figure'</span><span class="token punctuation">)</span>
     el<span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token property-access">textContent</span><span class="token punctuation">.</span><span class="token method function property-access">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -103,12 +107,10 @@
       <span class="token punctuation">}</span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></prog>
-    <p>
+<span class="token punctuation">}</span></prog><p>
         As you can see, it's regular javascript code that uses the prism.js api. Using <progi role="figure">katex</progi> for rendering
         math formulae is just as simple:
-    </p>
-    <prog id="render_latex_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    </p><prog id="render_latex_code" class=" language-js" role="figure"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">render_latex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> blocks <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'formula'</span><span class="token punctuation">)</span>
   <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>blocks<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow">await</span> <span class="token function">evalScript</span><span class="token punctuation">(</span><span class="token string">"/static/packages/katex/katex.js"</span><span class="token punctuation">)</span>
@@ -116,11 +118,9 @@
     <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">head</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span><span class="token function">make_element</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;link rel="stylesheet" href="/static/packages/katex/katex.css"&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     blocks<span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token parameter">block</span> <span class="token arrow operator">=&gt;</span> <span class="token function">renderMathInElement</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></prog>
-    <blockquote>
+<span class="token punctuation">}</span></prog><blockquote>
         See pages tagged with <a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a> for more guides.
-    </blockquote>
-</article><footer>
+    </blockquote></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>
