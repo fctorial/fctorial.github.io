@@ -2,24 +2,6 @@
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
-<script>
-  function initRT() {
-    const bg = document.querySelector('#main_bg')
-    const thanos = document.querySelector('#thanos_bg')
-    window.onscroll = () => {
-      const maxScroll = document.body.offsetHeight - window.innerHeight
-      const curScroll = window.scrollY
-      if (maxScroll - curScroll < 100) {
-        thanos.style.opacity = '1'
-        bg.style.opacity = '0'
-      } else {
-        thanos.style.opacity = '0'
-        bg.style.opacity = '1'
-      }
-    }
-  }
-</script>
-
 
 
 
@@ -65,6 +47,23 @@
         line-height: 1rem;
     }
 
+    article {
+        overflow: hidden;
+    }
+
+    #end_note {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 1em;
+        padding: 1em 1em 0;
+
+        background: linear-gradient(to top, #666666, 20px, #00000000);
+        margin: 0 -1em -1em;
+    }
+    #gh_links > * {
+        margin: 1em;
+    }
 </style>
 
 <div id="body_wrapper" class="first_body_wrapper"><header><nav><a href="/">
@@ -117,6 +116,7 @@
     
     
 
+    
     
     
 <section><h2>What is constexpr?</h2><p>
@@ -278,7 +278,14 @@ optional arguments:
         </li>
     </ol><blockquote>
         See pages tagged with <a class="tag_element" href="/tags/constexpr.js.html">constexpr.js</a> for more guides.
-    </blockquote></section></article><footer>
+    </blockquote><div id="end_note">
+        <h4 id="repo_link"><a literal="" href="https://github.com/fctorial/ConstexprJS">https://github.com/fctorial/ConstexprJS</a></h4>
+        <div id="gh_links">
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch fctorial/ConstexprJS on GitHub">Watch</a>
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star fctorial/ConstexprJS on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/fctorial/ConstexprJS/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue fctorial/ConstexprJS on GitHub">Issue</a>
+        </div>
+    </div></section></article><footer>
     <div class="links">
         <div class="social">
             <div class="footer-title">Share this page:</div>
@@ -295,4 +302,4 @@ optional arguments:
         </div>
     </div>
 
-<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/">Join the discussion here</a></footer></div></body></html>
+<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/">Join the discussion here</a></footer></div><script async="" defer="" src="https://buttons.github.io/buttons.js"></script></body></html>
