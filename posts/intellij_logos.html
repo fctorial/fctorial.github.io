@@ -11,7 +11,7 @@
 
 <script>
   function initHover() {
-    const logos = article.querySelectorAll('section img')
+    const logos = document.querySelectorAll('article section img')
     for (let i = 0; i < logos.length; i++) {
       let selectors = `img#logo_bg_${logos[i].title.replaceAll('.', '_')}`;
       const m_bg = document.querySelector(selectors)
