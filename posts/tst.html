@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide for " tst",="" an="" repl="" oriented="" testing="" framework="" for="" clojure="" and="" clojurescript"=""><meta name="keywords" content="clojure,testing"><title>An REPL oriented testing framework for clojure and clojurescript</title></head><body>
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/static/css/prism.css"><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="A guide for " tst",="" an="" repl="" oriented="" testing="" framework="" for="" clojure="" and="" clojurescript"=""><meta name="keywords" content="clojure,testing"><title>An REPL oriented testing framework for clojure and clojurescript</title></head><body><div id="left-sidebar">
+    <div class="heading">Table of content</div>
+    <ol id="table-of-content"><li><a href="#top">Top</a></li><li><a href="#definingatestsuite">Defining a test suite</a></li><li><a href="#manipulatingtestsuites">Manipulating test suites</a></li><li><a href="#runningtestsuites">Running test suites</a></li><li><a href="#teststate">Test state</a></li><li><a href="#navigatingthetestresulttree">Navigating the test result tree</a></li></ol>
+</div>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -56,12 +59,12 @@
     
     
     
-<section><p>
+<section id="top"><h2 style="display: none;">Top</h2><p>
         <a href="https://github.com/fctorial/tst">tst</a> is a testing library for clojure(script) that is designed to be
         used from the REPL. In this article, I'm going to describe how to use it.
     </p><p>
         The base API consists of two entities, the macro <progi role="figure">testing</progi> and the function <progi role="figure">run-test</progi>.
-    </p></section><section><h2>Defining a test suite</h2><p>
+    </p></section><section id="definingatestsuite"><h2>Defining a test suite</h2><p>
         <progi role="figure">testing</progi> macro is used to define the test suite tree. The leaf nodes in this tree will contain the
         testing logic and the inner nodes will be used to group multiple test suites. An invocation of the
         <progi role="figure">testing</progi> macro returns a test suite as a value:
@@ -86,7 +89,7 @@
                      <span class="token punctuation">(</span>testing <span class="token operator">:d</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
                               <span class="token punctuation">(</span><span class="token keyword">throw</span> <span class="token punctuation">(</span><span class="token keyword">new</span> Error<span class="token punctuation">)</span><span class="token punctuation">)</span>
                               <span class="token punctuation">{</span><span class="token operator">:result</span>  <span class="token operator">:OK</span>
-                               <span class="token operator">:message</span> <span class="token string">"ignored"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span></prog></section><section><h2>Manipulating test suites</h2><p>
+                               <span class="token operator">:message</span> <span class="token string">"ignored"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span></prog></section><section id="manipulatingtestsuites"><h2>Manipulating test suites</h2><p>
         You can combine multiple test suites into a single suite using <progi role="figure">combine-tests</progi> function:
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> combined <span class="token punctuation">(</span>combine-tests <span class="token punctuation">[</span>suite1 suite2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         A common pattern is to define parts of test suite in different modules and combining them into one big suite in
@@ -96,7 +99,7 @@
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span><span class="token keyword">def</span> suite3 <span class="token punctuation">(</span><span class="token keyword">get</span> combined <span class="token operator">:test</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token keyword">def</span> suite4 <span class="token punctuation">(</span>get-in combined <span class="token punctuation">[</span><span class="token operator">:a</span> <span class="token operator">:c</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></prog><p>
         This can be used to run a subset of the full test suite.
-    </p></section><section><h2>Running test suites</h2><p>
+    </p></section><section id="runningtestsuites"><h2>Running test suites</h2><p>
         <progi role="figure">run-test</progi> function can be used to execute a test suite. It returns a result tree whose structure
         matches that of the given test suite.
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span>
@@ -109,7 +112,7 @@
          <span class="token operator">:exception</span> #error<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
 
 <span class="token punctuation">(</span>run-test <span class="token punctuation">(</span>get-in combined <span class="token punctuation">[</span><span class="token operator">:a</span> <span class="token operator">:c</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span></prog></section><section><h2>Test state</h2><p>
+<span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span></prog></section><section id="teststate"><h2>Test state</h2><p>
         Consider the following test unit:
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>testing <span class="token operator">:suite</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
          <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span><span class="token number">a</span> <span class="token punctuation">(</span>get_a<span class="token punctuation">)</span>
@@ -142,7 +145,7 @@
         intermediate state of the test unit inside these atoms, and this state will be available in the test result:
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">{</span><span class="token operator">:suite</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:EXCEPTION</span><span class="token punctuation">,</span>
          <span class="token operator">:exception</span> #error<span class="token punctuation">,</span>
-         <span class="token operator">:state</span> <span class="token punctuation">{</span>val_a <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog></section><section><h2>Navigating the test result tree</h2><p>
+         <span class="token operator">:state</span> <span class="token punctuation">{</span>val_a <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></prog></section><section id="navigatingthetestresulttree"><h2>Navigating the test result tree</h2><p>
         You can use the <progi role="figure">get-failed</progi> function to filter tests with <progi role="figure">(not= status :OK)</progi>:
     </p><prog class=" language-clojure" role="figure"><span class="token punctuation">(</span>get-failed <span class="token punctuation">(</span>run-test combined<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token operator">:a</span> <span class="token punctuation">{</span><span class="token operator">:c</span> <span class="token punctuation">{</span><span class="token operator">:result</span> <span class="token operator">:ERR</span><span class="token punctuation">,</span> <span class="token operator">:message</span> <span class="token string">"failing test"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -182,4 +185,4 @@
         </div>
     </div>
 
-<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/">Join the discussion here</a></footer></div></body></html>
+<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/">Join the discussion here</a></footer></div><div id="right-sidebar"></div></body></html>

@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="This page talks describes how constexpr.js figures how the dependencies of a page"><meta name="keywords" content="constexpr.js"><title>Dependency resolution in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="This page talks describes how constexpr.js figures how the dependencies of a page"><meta name="keywords" content="constexpr.js"><title>Dependency resolution in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body><div id="left-sidebar">
+    <div class="heading">Table of content</div>
+    <ol id="table-of-content"><li><a href="#top">Top</a></li><li><a href="#summary">Summary</a></li></ol>
+</div>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -35,7 +38,7 @@
     
 
     
-<section><p>
+<section id="top"><h2 style="display: none;">Top</h2><p>
         The dependency resolution system of constexpr.js is semi-automatic. The compiler figures out the dependencies
         (css, images, javascript, static files) of a page on its own, but the constexpr code inside a page can override
         the default behavior if it needs to. This article describes how the dependency resolution process works.
@@ -62,7 +65,7 @@
         the compiler injects another hook called <progi role="figure">window._ConstexprJS_.addDependency</progi> that takes precedence
         over <progi role="figure">addExclusion</progi>. If a resource is specified as a dependency by the page using this hook, it
         will be included no matter what.
-    </p></section><section><h2>Summary</h2><p>
+    </p></section><section id="summary"><h2>Summary</h2><p>
         These are the dependency resolution mechanisms used by constexpr.js compiler. Mechanisms lower in the list take
         precedence over the ones that appear before them:
     </p><ol>
@@ -93,4 +96,4 @@
         </div>
     </div>
 
-<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mp0tge/dependency_resolution_in_constexprjs/">Join the discussion here</a></footer></div></body></html>
+<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/mp0tge/dependency_resolution_in_constexprjs/">Join the discussion here</a></footer></div><div id="right-sidebar"></div></body></html>

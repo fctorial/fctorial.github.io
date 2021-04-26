@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js"><title>Entry Points in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon"><meta name="viewport" content="width=device-width, min-width=800"><link rel="stylesheet" href="/static/css/styles.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><meta name="description" content="How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML"><meta name="keywords" content="constexpr.js"><title>Entry Points in constexpr.js</title><link rel="stylesheet" href="/static/css/prism.css"></head><body><div id="left-sidebar">
+    <div class="heading">Table of content</div>
+    <ol id="table-of-content"><li><a href="#top">Top</a></li><li><a href="#linkstogeneratedpages">Links to generated pages</a></li><li><a href="#corollary">Corollary</a></li><li><a href="#seealso">See also</a></li></ol>
+</div>
 <img class="bg" id="main_bg" src="/static/img/bg.jpg" alt="">
 
 
@@ -42,7 +45,7 @@
     
     
     
-<section><p>
+<section id="top"><h2 style="display: none;">Top</h2><p>
         <progi role="figure">constexpr.js</progi> executable requires three mandatory arguments, <progi role="figure">--input</progi>,
         <progi role="figure">--output</progi>, and <progi role="figure">--entry</progi>.
         <progi role="figure">--entry</progi> option can be used multiple times in an invocation. Its values must be paths of HTML
@@ -169,11 +172,11 @@
 </svg></div><p>
         You can also use this option to compile only a small number of pages in your website, which might be useful if
         you have a huge website.
-    </p></section><section><h2>Links to generated pages</h2><p>
+    </p></section><section id="linkstogeneratedpages"><h2>Links to generated pages</h2><p>
         The compiler also maps all the links to generator page (<progi role="figure">/posts/generator_from_date.html?2021-jan</progi>)
         to the correct output HTMLs (<progi role="figure">/posts/2021-jan.html</progi>). This ensures that the original and the final
         website look and work exactly the same when you use this feature.
-    </p></section><section><h2>Corollary</h2><p>
+    </p></section><section id="corollary"><h2>Corollary</h2><p>
         The motivation behind this feature is to decouple the structure of your output website from the filesystem.
         The design philosophy of constexpr.js goes against that of traditional static site generators which
         have a ton of implicit behavior, and plugins add more implicit behavior on top of that. In order to build a
@@ -190,7 +193,7 @@
         <a target="_blank" href="https://github.com/fctorial/fctorial.github.io.src/blob/master/static/js/constexpr/renderer.js">renderer.js</a>,
         and
         <a target="_blank" href="https://github.com/fctorial/fctorial.github.io.src/blob/master/tags/generator.html">tags/generator.html</a>.
-    </p></section><section><h2>See also</h2><p>
+    </p></section><section id="seealso"><h2>See also</h2><p>
         <a href="https://github.com/fctorial/constexprjs_Now">ConstexprJS Now</a>, a fully featured clone of <a href="https://www.jekyllnow.com/">Jekyll Now</a>, a blogging theme
         for jekyll SSG. A demo has been deployed <a href="/raw/constexprjs_now">here</a>.
     </p></section></article><footer>
@@ -210,4 +213,4 @@
         </div>
     </div>
 
-<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/">Join the discussion here</a></footer></div></body></html>
+<a rel="noopener" class="discussion" target="_blank" href="https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/">Join the discussion here</a></footer></div><div id="right-sidebar"></div></body></html>
