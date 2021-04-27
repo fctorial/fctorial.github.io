@@ -30,9 +30,6 @@
     
     
     
-    
-    
-    
 <section id="top"><h2 style="display: none;">Top</h2><p>
         Rust is considered by many to be one of the hardest mainstream programming languages. Many beginners struggle a
         lot when learning rust, despite the excellent tooling, decent standard library, and painless package
@@ -86,19 +83,6 @@
         sooner or later, you'll hit the limits of the borrow checker. And when that happens, you'll have to start
         thinking about resources and lifetimes. I believe this is the number one gotcha that trips up rust noobs.
     </p><p>
-        It's crazy how similar rust feels to a high level dynamic language. You can even add methods to predefined
-        types:
-    </p><prog class=" language-js" role="figure"><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">boo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"boo"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></prog><prog class=" language-rust" role="figure"><span class="token keyword">trait</span> <span class="token class-name">Ghost</span> <span class="token punctuation">{</span>
-    <span class="token keyword">fn</span> <span class="token function-definition function">boo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">impl</span> <span class="token class-name">Ghost</span> <span class="token keyword">for</span> <span class="token class-name">String</span> <span class="token punctuation">{</span>
-    <span class="token keyword">fn</span> <span class="token function-definition function">boo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"boo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></prog><p>
         So newcomers find rust difficult <em>because</em> of how marvellous and helpful the borrow checker is. It tricks
         newcomers into thinking that rust is a high level language.
     </p><blockquote>
