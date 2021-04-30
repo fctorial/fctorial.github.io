@@ -3,13 +3,13 @@
 
 <channel>
   <title>fctorial</title>
-  <link>https://fctorial.github.io</link>
+  <link>http://fctorial.com</link>
   <description>A blog where I'll post (mostly tech related) stuff</description>
 
   <item>
       <title>Constexpr.js hello world</title>
       <pubDate>24 Apr 2021</pubDate>
-      <link>https://fctorial.github.io/posts/constexprjs_hello_world.html</link>
+      <link>http://fctorial.com/posts/constexprjs_hello_world.html</link>
       <description>In this article, I build a </description>
       <comments>https://www.reddit.com/r/fctorial/comments/mxjyx1/constexprjs_hello_world/</comments>
       
@@ -18,7 +18,7 @@
   <item>
       <title>Accessing xorg clipboard from command line</title>
       <pubDate>20 Apr 2021</pubDate>
-      <link>https://fctorial.github.io/posts/clipboard_cli.html</link>
+      <link>http://fctorial.com/posts/clipboard_cli.html</link>
       <description>A simple command line utility for working with clipboard on linux</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mujazd/accessing_xorg_clipboard_from_command_line/</comments>
       
@@ -27,7 +27,7 @@
   <item>
       <title>Dependency resolution in constexpr.js</title>
       <pubDate>13 Apr 2021</pubDate>
-      <link>https://fctorial.github.io/posts/constexprjs_dependency_resolution.html</link>
+      <link>http://fctorial.com/posts/constexprjs_dependency_resolution.html</link>
       <description>This page talks describes how constexpr.js figures how the dependencies of a page</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mp0tge/dependency_resolution_in_constexprjs/</comments>
       
@@ -36,7 +36,7 @@
   <item>
       <title>Rust is a low level language</title>
       <pubDate>10 Apr 2021</pubDate>
-      <link>https://fctorial.github.io/posts/rust_difficult.html</link>
+      <link>http://fctorial.com/posts/rust_difficult.html</link>
       <description>In this article I try to describe why rust and its ownership system are so difficult to learn</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mo5jk7/rust_is_a_low_level_language/</comments>
       
@@ -46,7 +46,7 @@
   <item>
       <title>An REPL oriented testing framework for clojure and clojurescript</title>
       <pubDate>4 Apr 2021</pubDate>
-      <link>https://fctorial.github.io/posts/tst.html</link>
+      <link>http://fctorial.com/posts/tst.html</link>
       <description>A guide for "tst", an REPL oriented testing framework for clojure and clojurescript</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mk039d/an_repl_oriented_testing_framework_for_clojure/</comments>
       
@@ -56,7 +56,7 @@
   <item>
       <title>A Home Remedy For Impacted Wisdom Teeth</title>
       <pubDate>30 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/wisdom_teeth.html</link>
+      <link>http://fctorial.com/posts/wisdom_teeth.html</link>
       <description>A noninvasive maneuver for getting rid of teeth pain caused by an impacted wisdom tooth</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mga1rg/a_home_remedy_for_impacted_wisdom_teeth/</comments>
       
@@ -66,7 +66,7 @@
   <item>
       <title>Holi Special</title>
       <pubDate>28 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/dynamic_colored_border.html</link>
+      <link>http://fctorial.com/posts/dynamic_colored_border.html</link>
       <description>How to add animated colored borders to an element on your website.</description>
       <comments>https://www.reddit.com/r/fctorial/comments/mexe2n/holi_special/</comments>
       
@@ -78,7 +78,7 @@
   <item>
       <title>Entry Points in constexpr.js</title>
       <pubDate>27 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/constexprjs_entry_points.html</link>
+      <link>http://fctorial.com/posts/constexprjs_entry_points.html</link>
       <description>How to use entry points in constexpr.js, a static site generator which uses javascript for generating HTML</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5fxy/entry_points_in_constexprjs/</comments>
       
@@ -87,7 +87,7 @@
   <item>
       <title>User Interface as an API for Humans</title>
       <pubDate>25 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/ui_api.html</link>
+      <link>http://fctorial.com/posts/ui_api.html</link>
       <description>A case study of windows 8, linux desktop environments, and some tips on how to build good user interfaces</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5fsz/user_interface_as_an_api_for_humans/</comments>
       
@@ -97,7 +97,7 @@
   <item>
       <title>Constexpr.js API Documentation</title>
       <pubDate>24 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/constexprjs_api_docs.html</link>
+      <link>http://fctorial.com/posts/constexprjs_api_docs.html</link>
       <description>Description of API hooks provided by constexpr.js to the compiler code</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5fp2/constexprjs_api_documentation/</comments>
       
@@ -106,7 +106,7 @@
   <item>
       <title>Syntax Highlighting in a Webpage Without Javascript</title>
       <pubDate>23 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/syntax_highlighting_nojs.html</link>
+      <link>http://fctorial.com/posts/syntax_highlighting_nojs.html</link>
       <description>This guide describes how you can use constexpr.js to highlight code in your website without using javascript</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5fl7/syntax_highlighting_in_a_webpage_without/</comments>
       
@@ -116,7 +116,7 @@
   <item>
       <title>Reading The Tea Leaves</title>
       <pubDate>22 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/youtube_python_bug.html</link>
+      <link>http://fctorial.com/posts/youtube_python_bug.html</link>
       <description>Description of a rare bug in youtube website, and a possible cause of that bug</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5fg2/reading_the_tea_leaves/</comments>
       
@@ -127,7 +127,7 @@
   <item>
       <title>Zircon Standalone</title>
       <pubDate>20 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/zircon_standalone.html</link>
+      <link>http://fctorial.com/posts/zircon_standalone.html</link>
       <description>A framework for writing programs for zircon, the kernel of upcoming fuchsia operating system</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5f8w/zircon_standalone/</comments>
       
@@ -136,7 +136,7 @@
   <item>
       <title>Runtime/Compile time code separation with constexpr.js</title>
       <pubDate>19 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/runtime_compiletime_constexpr.js.html</link>
+      <link>http://fctorial.com/posts/runtime_compiletime_constexpr.js.html</link>
       <description>Some tips for organizing code when using constexpr.js, a static site generator which uses javascript for generating HTML</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5f4s/runtimecompile_time_code_separation_with/</comments>
       
@@ -145,7 +145,7 @@
   <item>
       <title>Zero Cost Abstractions in Web Development</title>
       <pubDate>18 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/constexpr.js.html</link>
+      <link>http://fctorial.com/posts/constexpr.js.html</link>
       <description>An introduction of constexpr.js, which is a flexible static site generator which uses javascript for generating HTML</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5f1y/zero_cost_abstractions_in_web_development/</comments>
       
@@ -155,7 +155,7 @@
   <item>
       <title>Modifying Intellij Idea without using SDK or compiling it from source</title>
       <pubDate>17 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/modifying_idea.html</link>
+      <link>http://fctorial.com/posts/modifying_idea.html</link>
       <description>A guide about modifying the behavior of intellij idea without writing a plugin or compiling the ide from source</description>
       <comments>https://www.reddit.com/r/fctorial/comments/me5ev6/modifying_intellij_idea_without_using_sdk_or/</comments>
       
@@ -164,9 +164,9 @@
   <item>
       <title>All Intellij Idea CE Logos</title>
       <pubDate>16 Mar 2021</pubDate>
-      <link>https://fctorial.github.io/posts/intellij_logos.html</link>
+      <link>http://fctorial.com/posts/intellij_logos.html</link>
       <description>A list of all Intellij Idea Community Edition splash screens that were pushed to intellij-community github repository</description>
-      <comments>https://fctorial.github.io/posts/intellij_logos.html</comments>
+      <comments>https://www.reddit.com/r/fctorial/comments/me5eiv/all_intellij_idea_ce_logos</comments>
       
       <category>intellij</category>
   </item>
